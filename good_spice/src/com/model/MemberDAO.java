@@ -109,9 +109,9 @@ public class MemberDAO {
 			if(rs.next()){
 				System.out.println("로그인성공!");	
 				
-				String get_id = rs.getNString("id");
-				String get_pw = rs.getNString("pw");
-				String get_nick = rs.getNString("nick");
+				String get_id = rs.getNString("MEM_ID");
+				String get_pw = rs.getNString("MEM_PW");
+				String get_nick = rs.getNString("MEM_NICK");
 				
 				vo = new MemberVO(get_id,get_pw,get_nick);
 //				

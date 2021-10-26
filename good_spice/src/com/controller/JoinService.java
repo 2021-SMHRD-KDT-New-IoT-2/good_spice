@@ -36,7 +36,7 @@ public class JoinService extends HttpServlet {
 			System.out.println("가입성공!");
 			
 //			forward방식으로 페이지 이동
-			RequestDispatcher rd = request.getRequestDispatcher("indexcopy.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
 			
 //			requst 영역에 기억해야할 데이터 설정
 			request.setAttribute("ID", id);
@@ -48,7 +48,7 @@ public class JoinService extends HttpServlet {
 			
 		}else {
 			System.out.println("가입실패!");
-			response.sendRedirect("indexcopy.jsp");
+			response.sendRedirect("main.jsp");
 		}
 	}
 

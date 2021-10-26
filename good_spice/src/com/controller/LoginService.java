@@ -33,15 +33,15 @@ public class LoginService extends HttpServlet {
 		//세션 객체 생성
 		HttpSession session = request.getSession();
 		
-//		세션 값 설정
+		//세션 값 설정
 		session.setAttribute("member", vo);
 		
-		response.sendRedirect("main.jsp");
-//		 로그인 기능 작성
-//		로그인 가능할 경우 =>로그인 성공출력
-//		로그인 불가능할 경우 =>로그인 실패출력	
+		response.sendRedirect("mainLogin.jsp");
+		//로그인 기능 작성
+		//로그인 가능할 경우 =>로그인 성공출력
+		//로그인 불가능할 경우 =>로그인 실패출력	
 		}else {
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("mainLogin.jsp");
 		}
 	}
 
