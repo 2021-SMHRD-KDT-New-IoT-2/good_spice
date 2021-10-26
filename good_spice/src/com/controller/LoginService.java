@@ -23,11 +23,11 @@ public class LoginService extends HttpServlet {
 	// 官捞飘内靛 => text 	/开流纺拳
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
-		String email = request.getParameter("email");
+		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
 		MemberDAO dao =new MemberDAO();
-		MemberVO vo =dao.login(email, pw);
+		MemberVO vo =dao.login(id, pw);
 		
 		if(vo!=null) {
 		//技记 按眉 积己
