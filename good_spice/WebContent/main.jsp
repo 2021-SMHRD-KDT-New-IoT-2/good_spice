@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -16,6 +17,10 @@
 </head>
 
 <body class="is-preload">
+		<%
+			//현재 로그인 상태인지 판별 (vo == null => 로그인하지 않은 상태)
+			MemberVO vo =(MemberVO)session.getAttribute("member");
+		%>
 
 	<!-- Wrapper -->
 	
@@ -42,15 +47,31 @@
 						<ul class = "Recipe"></ul></li>
 					<li><a href="#POST">Board</a></li>
 					<li><a href="#QNA">Q&A</a></li>
-					<li><a href="#Login">Login</a></li>
-					<li><a href="#Join">Join</a></li>
-					<!--<li><a href="#elements">Elements</a></li>-->
+					
+					
+					<%if(vo==null){%>
+						<li><a href="#Login">Login</a></li>
+						<%}else{ %>
+						<li><a href="#Mypage">Mypage</a></li>
+						<%}%>
+					
+					<%if(vo==null){%>
+						<li><a href="#Join">Join</a></li>
+						<%}else{ %>
+						<li><a href="LogoutService">Logout</a></li>
+						<%}%>
 				</ul>
 			</nav>
+			
 		</header>
 		
 		<!-- Main -->
 		<div id="main">
+		
+			<article id="Mypage">
+				<h2 class="major">Mypage</h2>
+					
+			</article>
 
 			<!-- Intro 제품소개 -->
 			<article id="intro">
