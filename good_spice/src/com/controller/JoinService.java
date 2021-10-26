@@ -28,7 +28,9 @@ public class JoinService extends HttpServlet {
 		String nick = request.getParameter("nick");
 				
 		MemberDAO dao = new MemberDAO();
-		int cnt =dao.join(id, pw, nick);
+		int cnt = dao.join(id, pw, nick);
+		
+		
 		
 		if(cnt>0){
 			System.out.println("가입성공!");
