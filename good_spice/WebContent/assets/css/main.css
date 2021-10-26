@@ -1362,7 +1362,7 @@ input, select, textarea {
 				padding-left: 0;
 				border-left: solid 1px #ffffff;
 			}
-
+			
 				#header nav ul li:first-child {
 					border-left: 0;
 				}
@@ -1402,12 +1402,12 @@ input, select, textarea {
 					box-align: center;
 				}
 
-					#header nav ul li a:hover {
-						background-color: rgba(255, 255, 255, 0.075);
+					#header nav ul li a:hover{
+						background-color: rgba(0, 0, 0, 0.500);
 					}
-
-					#header nav ul li a:active {
-						background-color: rgba(255, 255, 255, 0.175);
+					
+					#header nav ul li select:hover{
+						background-color: rgba(0, 0, 0, 0.500);
 					}
 
 		#header nav.use-middle:after {
@@ -1626,11 +1626,11 @@ input, select, textarea {
 				}
 
 				#main article .close:hover:before {
-					background-color: rgba(255, 255, 255, 0.075);
+					background-color: rgba(0, 0, 0, 0.500);
 				}
 
 				#main article .close:active:before {
-					background-color: rgba(255, 255, 255, 0.175);
+					background-color: rgba(0, 0, 0, 0.500);
 				}
 
 		@media screen and (max-width: 736px) {
