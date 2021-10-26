@@ -28,9 +28,9 @@ public class MemberDAO {
 			
 //			2. 데이터베이스 연결 객체 생성
 
-			String url="jdbc:oracle:thin:@project-db-stu.ddns.net:15324:xe";
-			String dbid="campus_b_2_10235";
-			String dbpw="smhrd21";
+			String url="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			String dbid="campus_b_2_1025";
+			String dbpw="smhrd2";
 			
 			conn = DriverManager.getConnection(url,dbid,dbpw);
 		} catch (Exception e) {
