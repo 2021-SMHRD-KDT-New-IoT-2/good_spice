@@ -26,6 +26,7 @@
 		<h3><a href="main.jsp">메인페이지</a>	</h3>					
 </div>
 
+
 	<!-- BG -->
 	<div id="bg"></div>
 
