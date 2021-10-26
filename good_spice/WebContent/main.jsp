@@ -13,6 +13,11 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+
+<style>
+.Recipe
+</style>
+
 </head>
 
 <body class="is-preload">
@@ -38,8 +43,14 @@
 			<nav>
 				<ul>
 					<li><a href="#intro">Intro</a></li>
-					<li class = "Recipe">Recipe
-						<ul class = "Recipe"></ul></li>
+					<li class = "dropbtn">Recipe
+						<ul class = "dropdown-content">
+							<li><a href = "#KOREA">한식</a></li>
+							<li><a href = "#CHINA">중식</a></li>
+							<li><a href = "#USA">양식</a></li>
+							<li><a href = "#JAPAN">일식</a></li>
+						</ul>
+					</li>
 					<li><a href="#POST">Board</a></li>
 					<li><a href="#QNA">Q&A</a></li>
 					<li><a href="#Login">Login</a></li>

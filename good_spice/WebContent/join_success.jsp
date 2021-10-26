@@ -22,7 +22,7 @@
 							<ul class="actions vertical">
 							<li><h1>환영합니다!</h1></li>
 							<li><%=ID %>님 회원가입을 축하합니다.</li>
-							<li><a href="indexcopy.html">메인페이지.</a></li>		
+							<li><a href="main.jsp">메인페이지.</a></li>		
 							</ul>
 						</article>
 
