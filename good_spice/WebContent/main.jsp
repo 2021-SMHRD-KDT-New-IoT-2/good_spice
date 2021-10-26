@@ -4,7 +4,6 @@
 <html>
 
 
-
 <head>
 	<title>Dimension by HTML5 UP</title>
 	<meta charset="EUC-kr" />
@@ -43,24 +42,16 @@
 			<nav>
 				<ul>
 					<li><a href="#intro">Intro</a></li>
-					<li class = "dropbtn">Recipe
-						<ul class = "dropdown-content">
-							<li><a href = "#KOREA">한식</a></li>
-							<li><a href = "#CHINA">중식</a></li>
-							<li><a href = "#USA">양식</a></li>
-							<li><a href = "#JAPAN">일식</a></li>
-						</ul>
-					</li>
+					<select onchange="if(this.value) location.href=(this.value);" class="select">
+						<option disabled selected>Recipe</option>
+						<option value="#KOREA">한식</option>
+						<option value="#CHINA">중식</option>
+						<option value="#USA">양식</option>
+						<option value="#JAPAN">일식</option>
+					  </select>
 					<li><a href="#POST">Board</a></li>
 					<li><a href="#QNA">Q&A</a></li>
-					<%
-					if(session.getAttribute("id") != null){%>
-						<li><a href="#Join">Mypage</a></li>
-						<li><a href="LogoutService">Logout</a></li>
-					<% }else{ %>
-						<li><a href="#Login">Login</a></li>
-						<li><a href="#Join">Join</a></li>
-						<% } %>
+					
 					<!--<li><a href="#elements">Elements</a></li>-->
 				</ul>
 			</nav>
