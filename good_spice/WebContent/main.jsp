@@ -53,8 +53,14 @@
 					</li>
 					<li><a href="#POST">Board</a></li>
 					<li><a href="#QNA">Q&A</a></li>
-					<li><a href="#Login">Login</a></li>
-					<li><a href="#Join">Join</a></li>
+					<%
+					if(session.getAttribute("id") != null){%>
+						<li><a href="#Join">Mypage</a></li>
+						<li><a href="LogoutService">Logout</a></li>
+					<% }else{ %>
+						<li><a href="#Login">Login</a></li>
+						<li><a href="#Join">Join</a></li>
+						<% } %>
 					<!--<li><a href="#elements">Elements</a></li>-->
 				</ul>
 			</nav>
