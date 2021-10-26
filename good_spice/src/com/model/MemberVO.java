@@ -6,7 +6,7 @@ public class MemberVO {
 	private String pw;
 	private String nick;
 //	»ý¼ºÀÚ
-	public MemberVO(String id,String pw ,String nick) {
+	public MemberVO(String id, String pw ,String nick) {
 		this.id = id;
 		this.pw = pw;
 		this.nick = nick;
