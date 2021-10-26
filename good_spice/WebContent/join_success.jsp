@@ -23,7 +23,7 @@
 	%>		
 		<!-- Menu -->
 		<span><h1><%=ID %>님의 회원가입을 환영합니다.</h1></span>
-		<h3><a href="indexcopy.html">메인페이지</a>	</h3>					
+		<h3><a href="main.jsp">메인페이지</a>	</h3>					
 </div>
 
 	<!-- BG -->

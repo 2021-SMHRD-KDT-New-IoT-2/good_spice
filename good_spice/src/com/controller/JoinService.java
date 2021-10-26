@@ -29,15 +29,14 @@ public class JoinService extends HttpServlet {
 				
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(id, pw, nick);
-		
-		
-		
+
 		if(cnt>0){
 			System.out.println("가입성공!");
 			
 //			forward방식으로 페이지 이동
+
 			RequestDispatcher rd = request.getRequestDispatcher("join_success.jsp");
-			
+
 //			requst 영역에 기억해야할 데이터 설정
 			request.setAttribute("ID", id);
 			
@@ -48,7 +47,7 @@ public class JoinService extends HttpServlet {
 			
 		}else {
 			System.out.println("가입실패!");
-			response.sendRedirect("indexcopy.jsp");
+			response.sendRedirect("main.jsp");
 		}
 	}
 
