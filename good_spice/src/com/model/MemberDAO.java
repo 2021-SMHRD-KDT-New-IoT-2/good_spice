@@ -27,6 +27,7 @@ public class MemberDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 //			2. 데이터베이스 연결 객체 생성
+
 			String url="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String dbid="campus_b_2_1025";
 			String dbpw="smhrd2";
@@ -216,17 +217,17 @@ public class MemberDAO {
 		return cnt;
 	}
 //	아이디 중복체크
-	public boolean EmailCheck(String email) {
+	public boolean idCheck(String id) {
 		try {
 			connection();
 //			3. 실행할 sql문 정의 (실행할때마다 값이 달라지는 부분은 ? 작성)
-			String sql = "select email from WEB_MEMBER where email=?";
+			String sql = "select MEM_ID from MEMBER where MEM_ID=?";
 			
 //			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
 			
 //			5. 바인드 변수(?) 채우기
-			psmt.setNString(1,email);
+			psmt.setNString(1,id);
 			
 //			6. sql문 실행 후 결과처리
 			rs = psmt.executeQuery();

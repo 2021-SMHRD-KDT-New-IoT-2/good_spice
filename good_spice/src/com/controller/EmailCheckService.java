@@ -16,12 +16,12 @@ public class EmailCheckService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email =request.getParameter("email");
+		String id =request.getParameter("id");
 		
-		System.out.println(email);
+		System.out.println(id);
 		
 		MemberDAO dao = new MemberDAO();
-		boolean check = dao.EmailCheck(email);
+		boolean check = dao.idCheck(id);
 		
 		//출력 스트림(통로)
 		PrintWriter out = response.getWriter();
