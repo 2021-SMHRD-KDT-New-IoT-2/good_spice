@@ -2,9 +2,6 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <html>
-
-
-
 <head>
 	<title>Dimension by HTML5 UP</title>
 	<meta charset="EUC-kr" />
@@ -56,7 +53,7 @@
 		
 		<!-- Main -->
 		<div id="main">
-
+	
 			<!-- Intro -->
 			<article id="intro">
 				<h2 class="major">제품소개</h2>
@@ -170,8 +167,11 @@
 								<input name="nick" type="text" placeholder="NICK를 입력하세요">
 								<br>
 								<input type="submit" value="JoinUs" class="button fit">
-						</form>			
-				</article>	
+						</form>	
+								
+				</article>
+				
+											
 		</div>
 
 		<!-- Footer -->
