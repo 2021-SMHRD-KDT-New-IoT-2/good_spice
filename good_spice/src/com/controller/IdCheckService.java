@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.model.MemberDAO;
 
-@WebServlet("/EmailCheckService")
-public class EmailCheckService extends HttpServlet {
+@WebServlet("/IdCheckService")
+public class IdCheckService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id =request.getParameter("id");
+		request.setCharacterEncoding("euc-kr");
 		
-		System.out.println(id);
+		String id =request.getParameter("id");
 		
 		MemberDAO dao = new MemberDAO();
 		boolean check = dao.idCheck(id);
