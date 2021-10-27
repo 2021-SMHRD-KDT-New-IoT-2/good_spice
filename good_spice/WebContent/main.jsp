@@ -51,7 +51,7 @@
 						<script>
 						function test(){
 							$("#select").val("Recipe");							
-						}
+							}
 						</script>
 						
 					<li><a href="#POST">Board</a></li>
