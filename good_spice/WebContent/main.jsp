@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.MemberDAO"%>
 <%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -17,6 +19,8 @@
 		<%
 			//현재 로그인 상태인지 판별 (vo == null => 로그인하지 않은 상태)
 			MemberVO vo =(MemberVO)session.getAttribute("member");
+			MemberDAO dao = new MemberDAO();
+			ArrayList<MemberVO> al =dao.selectAll();
 		%>
 
 	<!-- Wrapper -->
@@ -61,26 +65,51 @@
 					<%if(vo==null){%>
 						<li><a href="#Login">Login</a></li>
 						<li><a href="#Join">Join</a></li>
-						<%}else{ %>
-						<script>
-							alert("<%=vo.getnick() %> 님 환영합니다.");
-						</script>
+					<%}else{ %>	
+					
+						<%String GetId = vo.getid(); %>
 						
-						<li><select onchange="if(this.value) location.href=(this.value);" id="selMypage" onclick="info()">
-							<option disabled selected>Mypage</option>
-							<option value="#ChangeInfo">정보수정</option>
-							<option value="#Product">기기관리</option>
-						</select></li>
+						<%if(GetId.equals("admin")){ %>	
+							<script>
+							alert("관리자님 환영합니다.");
+							</script>
+								
+							<li><select onchange="if(this.value) location.href=(this.value);" id="Adminpage" onclick="admin()">
+								<option disabled selected>Admin</option>
+								<option value="#ChangeInfo">레시피</option>
+								<option value="SelectMember.jsp">회원정보</option>
+								</select></li>
+								
+								<script>
+								function admin(){
+									$("#Adminpage").val("Admin");					
+											}
+								</script>
+
+								<li><a href="LogoutService">Logout</a></li>
+							
 						
-						<script>
-						function info(){
-							$("#selMypage").val("Mypage");							
-									}
-						</script>
-						
-						
-						<li><a href="LogoutService">Logout</a></li>
-						<%}%>
+						<%}else{ %>			
+								<script>
+									alert("<%=vo.getnick() %> 님 환영합니다.");
+								</script>
+								
+								<li><select onchange="if(this.value) location.href=(this.value);" id="selMypage" onclick="info()">
+									<option disabled selected>Mypage</option>
+									<option value="#ChangeInfo">정보수정</option>
+									<option value="#Product">기기관리</option>
+								</select></li>
+								
+								<script>
+								function info(){
+									$("#selMypage").val("Mypage");							
+											}
+								</script>
+
+								<li><a href="LogoutService">Logout</a></li>
+								<%}%>
+									<%}%>
+								
 				</ul>
 			</nav>
 			
@@ -270,8 +299,6 @@
 					</form>
 			</article>
 
-
-
 			<!-- Join 회원가입 -->
 			<article id="Join">
 				<h2 class="major">Join</h2>
@@ -289,8 +316,7 @@
 						</div>	
 					</form>			
 			</article>	
-			
-			
+						
 			<!-- 기기관리 -->
 			<article id="Product">
 				<h2 class="major">기기관리</h2>
@@ -328,7 +354,26 @@
 							
 			</article>
 			
-			
+			<!-- MemberInfo 회원정보 -->
+			<article id="MemberInfo">
+				<h2 class="major">회원관리</h2>
+				<table>
+					<tr>
+						<td>ID</td>
+						<td>PW</td>
+						<td>NICK</td>
+						<td>Delete</td>
+					</tr>
+				<%for(MemberVO member:al){%>
+					<tr>
+						<td><%=member.getid() %></td>
+						<td><%=member.getpw() %></td>
+						<td><%=member.getnick() %></td>
+						<td><a href="DeleteService?id=<%=member.getid()%>">삭제</a></td>
+					</tr>
+				<%}%>
+				</table>	
+			</article>
 			
 			
 			
