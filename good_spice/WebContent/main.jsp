@@ -85,6 +85,11 @@
 			</nav>
 			
 		</header>
+		<!-- header 끝 -->
+		
+		
+		
+		
 		
 		<!-- Main -->
 		<div id="main">
@@ -277,11 +282,42 @@
 			<!-- 기기관리 -->
 			<article id="Product">
 				<h2 class="major">기기관리</h2>
-				<span class="image main">
-					
-					
-				</span>				
+					<form action="ProductService" method="post">
+						<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
+						<br>
+						<select name="spice">
+							<option value = "">양념을 선택하세요.</option>
+							<option value = "소금">소금</option>
+							<option value = "설탕">설탕</option>
+							<option value = "후추">후추</option>
+						</select>
+						<br>
+						<div style="text-align: center;">
+							<input type="submit" value="저장">
+							<br>
+						</div>
+					</form>
+						<br><br>						
+						<table>
+							<tr>
+								<td>제품번호</td>
+								<td>양념</td>
+							</tr>
+						</table>
+						<br><br>
+						
+					<form action = "#" method = "post">
+						<input name="SpiceGram" id="input_gram" type="text" placeholder="양념의 양을 입력하세요." required="required">
+						<br>
+						<div style="text-align: center;">
+							<input type="submit" value="출력">
+						</div>
+					</form>
+							
 			</article>
+			
+			
+			
 			
 			
 		</div> 
@@ -296,8 +332,10 @@
 		</footer>
 	</div>
 
+
 	<!-- BG -->
 	<div id="bg"></div>
+
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
