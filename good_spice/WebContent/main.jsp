@@ -66,7 +66,7 @@
 						
 						<li><select onchange="if(this.value) location.href=(this.value);" id="selMypage" onclick="test()">
 							<option disabled selected>Mypage</option>
-							<option value="#KOREA">정보수정</option>
+							<option value="#ChangeInfo">정보수정</option>
 							<option value="#CHINA">기기관리</option>
 							
 						</select></li>
@@ -164,8 +164,6 @@
 				</span>				
 			</article>
 
-
-
 			<!-- Q&A -->
 			<article id="QNA">
 				<h1 class="major">Q&A</h1>
@@ -186,6 +184,20 @@
 					</table>
 			</article>
 				
+			<!-- 개인정보 수정 -->	
+			<article id="ChangeInfo">
+				<h2 class="major">개인정보 수정</h2>
+				<form action="LoginService" method="post">
+					<h3>ID</h3><input name="id" type="text" placeholder="ID를 입력하세요" required="required">
+							<br>
+					<h3>PW</h3><input name="pw" type="password" placeholder="PW를 입력하세요" required="required">
+					<br>
+					<h3>NICK</h3><input name="pw" type="text" placeholder="NICK을 입력하세요" required="required">
+					<br>
+					<input type="submit" value="LogIn" class="button fit">
+					</form>
+				</span>				
+			</article>
 				
 				
 			<!-- Login 로그인 -->
