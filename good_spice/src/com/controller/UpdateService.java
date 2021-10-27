@@ -14,33 +14,33 @@ import com.model.MemberVO;
 
 @WebServlet("/UpdateService")
 public class UpdateService extends HttpServlet {
-
+	MemberVO vo = null;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		request.setCharacterEncoding("euc-kr");//요청데이터 인코딩 방식 지정
 		
 		HttpSession session = request.getSession();//세션객체 생성
-		MemberVO vo = (MemberVO)session.getAttribute("member");//현재 로그인한 사용자의 정보
-		String email = vo.getid();//로그인할 사용자의 이메일
+		vo = (MemberVO)session.getAttribute("member");//현재 로그인한 사용자의 정보
+		String id = vo.getid();//로그인할 사용자의 이메일
 		
 		//수정에 사용할 정보
 		String pw = request.getParameter("pw");
-		String tel = request.getParameter("tel");
-		String address = request.getParameter("address");
+		String nick = request.getParameter("nick");
+		
 		
 		//dao 기능 호출 => 수정여부를 판단할 수 있는 갑 반환
 //		수정성공일 경우에는 콘솔 => 수정성공!
 //		수정실패일 경우에는 콘솔 => 수정실패!
 		MemberDAO dao = new MemberDAO();
-		int cnt=dao.update(email, pw, tel, address);
+		int cnt=dao.update(id, pw, nick);
 		
 		
 		if(cnt>0) {
 			System.out.println("수정성공");
 			
-			MemberVO vo2 =new MemberVO(email,tel,address);
+			vo =new MemberVO(id,pw,nick);
 			
-			session.setAttribute("member",vo2);
+			session.setAttribute("member",vo);
 			
 			response.sendRedirect("main.jsp");
 		}else {

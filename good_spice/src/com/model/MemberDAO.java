@@ -128,12 +128,12 @@ public class MemberDAO {
 		return vo;
 	}
 //	수정 = 사용자가 입력한 pw,tel,address로 테이블의 값을 수정
-	public int update(String email ,String pw,String tel,String address) {
+	public int update(String id ,String pw,String nick) {
 		try {
 			connection();
 			
 //			3. 실행할 sql문 정의 (실행할때마다 값이 달라지는 부분은 ? 작성)
-			String sql = "UPDATE WEB_MEMBER SET pw = ?, tel=?, address=? WHERE email = ?";
+			String sql = "UPDATE MEMBER SET MEM_PW = ?, MEM_NICK=? WHERE MEM_ID = ?";
 			
 //			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
@@ -141,9 +141,8 @@ public class MemberDAO {
 //			5. 바인드 변수(?) 채우기
 			
 			psmt.setNString(1,pw);
-			psmt.setNString(2,tel);
-			psmt.setNString(3,address);
-			psmt.setNString(4,email);
+			psmt.setNString(2,nick);
+			psmt.setNString(3,id);
 			
 //			6. sql문 실행 후 결과처리
 			cnt = psmt.executeUpdate();
