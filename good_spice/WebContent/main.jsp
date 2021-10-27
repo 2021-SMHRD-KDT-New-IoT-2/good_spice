@@ -40,6 +40,7 @@
 			<nav>
 				<ul class>
 					<li><a href="#intro">Intro</a></li>
+
 						<li><select onchange="if(this.value) location.href=(this.value);" id="select" onclick="menu()">
 							<option disabled selected>Recipe</option>
 							<option value="#KOREA">한식</option>
@@ -53,14 +54,14 @@
 							$("#select").val("Recipe");							
 									}
 						</script>
+						
 					<li><a href="#POST">Board</a></li>
 					<li><a href="#QNA">Q&A</a></li>
-					
-					
+
 					<%if(vo==null){%>
 						<li><a href="#Login">Login</a></li>
 						<li><a href="#Join">Join</a></li>
-					<%}else { %>
+						<%}else{ %>
 						<script>
 							alert("<%=vo.getnick() %> 님 환영합니다.");
 						</script>
@@ -68,9 +69,9 @@
 						<li><select onchange="if(this.value) location.href=(this.value);" id="selMypage" onclick="info()">
 							<option disabled selected>Mypage</option>
 							<option value="#ChangeInfo">정보수정</option>
-							<option value="#CHINA">기기관리</option>
-							
+							<option value="#Product">기기관리</option>
 						</select></li>
+						
 						<script>
 						function info(){
 							$("#selMypage").val("Mypage");							
@@ -79,19 +80,19 @@
 						
 						
 						<li><a href="LogoutService">Logout</a></li>
-					<%}%> 
+						<%}%>
 				</ul>
 			</nav>
 			
 		</header>
+		<!-- header 끝 -->
+		
+		
+		
+		
 		
 		<!-- Main -->
 		<div id="main">
-		
-			<article id="Mypage">
-				<h2 class="major">Mypage</h2>
-					
-			</article>
 
 			<!-- Intro 제품소개 -->
 			<article id="intro">
@@ -579,6 +580,49 @@
 						</div>	
 					</form>			
 			</article>	
+			
+			
+			<!-- 기기관리 -->
+			<article id="Product">
+				<h2 class="major">기기관리</h2>
+					<form action="ProductService" method="post">
+						<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
+						<br>
+						<select name="spice">
+							<option value = "">양념을 선택하세요.</option>
+							<option value = "소금">소금</option>
+							<option value = "설탕">설탕</option>
+							<option value = "후추">후추</option>
+						</select>
+						<br>
+						<div style="text-align: center;">
+							<input type="submit" value="저장">
+							<br>
+						</div>
+					</form>
+						<br><br>						
+						<table>
+							<tr>
+								<td>제품번호</td>
+								<td>양념</td>
+							</tr>
+						</table>
+						<br><br>
+						
+					<form action = "#" method = "post">
+						<input name="SpiceGram" id="input_gram" type="text" placeholder="양념의 양을 입력하세요." required="required">
+						<br>
+						<div style="text-align: center;">
+							<input type="submit" value="출력">
+						</div>
+					</form>
+							
+			</article>
+			
+			
+			
+			
+			
 		</div> 
 		<!-- Main 끝 -->
 
@@ -587,12 +631,14 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; Untitled. Design: <a href="https://naver.com">네이버</a>.</p>
+			<p class="copyright">&copy; GOOD_SPICE : <a href="https://www.smhrd.or.kr"/>스마트인재개발원</a>.</p>
 		</footer>
 	</div>
 
+
 	<!-- BG -->
 	<div id="bg"></div>
+
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -601,6 +647,8 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
+	
+	
 	function idcheck(){
 		let input = document.getElementById("input_id");
 		
