@@ -16,6 +16,8 @@ public class DeleteService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("euc-kr");
+		
+		
 		String id = request.getParameter("id");
 		
 //		회원삭제기능 호출

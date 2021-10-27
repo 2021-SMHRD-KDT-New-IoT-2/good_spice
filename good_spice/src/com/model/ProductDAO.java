@@ -92,5 +92,37 @@ public class ProductDAO {
 		}
 		return cnt;
 	}
+//	제품 중복체크
+	public boolean prodCheck(String id) {
+		try {
+			connection();
+//			3. 실행할 sql문 정의 (실행할때마다 값이 달라지는 부분은 ? 작성)
+			String sql = "select PRODOUCT from spice_data where PRODOUCT=?";
+			
+//			4. sql문 실행객체 (PreparedStatment)생성
+			psmt = conn.prepareStatement(sql);
+			
+//			5. 바인드 변수(?) 채우기
+			psmt.setString(1, id);
+			
+//			6. sql문 실행 후 결과처리
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				//입력한 이메일을 사용할 수 없을때
+				check=true;
+			}else {
+				//입력한 이메일을 사용할 수 있을때
+				check=false;
+			}	
+		} catch (Exception e) {
+			System.out.println("중복확인 실패");
+			e.printStackTrace();
+			
+		}finally {
+			close();
+		}
+		return check;
+	}
 	
 }

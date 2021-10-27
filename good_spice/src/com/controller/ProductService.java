@@ -21,22 +21,21 @@ public class ProductService extends HttpServlet {
 		
 		String product = request.getParameter("product");
 		String spice = request.getParameter("spice");
-		String id = request.getParameter("id");
+//		String id = request.getParameter("id");
 		
 		
-//		HttpSession session = request.getSession();
-//		String id = (String)session.getAttribute(vo.getid());
+		HttpSession session = request.getSession();
+		MemberVO vo = (MemberVO)session.getAttribute("member");
 
-		
-		System.out.println(id);
+		System.out.println(vo.getid());
 		
 		
 		ProductDAO dao = new ProductDAO();
-		int cnt = dao.addProduct(product, spice, id);
+		int cnt = dao.addProduct(product, spice, vo.getid());
 		
 		if(cnt>0) {
 			System.out.println("등록성공!");
-			response.sendRedirect("product_success.jsp");
+			response.sendRedirect("main.jsp");
 		}else {
 			System.out.println("등록실패!");
 			response.sendRedirect("main.jsp");
