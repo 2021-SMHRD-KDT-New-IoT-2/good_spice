@@ -140,92 +140,383 @@
 			<!-- Recipe 한식 -->
 			<article id="KOREA">
 				<h2 class="major">한식</h2>
-				<span id="move" >
-				<a href="#CHINA">중식</a>
-				<a href="#USA">양식</a>
+			<div style="text-align: right;">
+				<a href="#CHINA">중식&ensp;</a>
+				<a href="#USA">양식&ensp;</a>
 				<a href="#JAPAN">일식</a>
-			</span>
+			</div>
 			<span class="image main">
 				김치찌개
-				<a href="http://127.0.0.1:5502/list.html"target="_blank"><img src="images/KOREA.jfif"></a>
+				<a href="#kimchi"><img src="images/KOREA.jfif"></a>								
 			</span>	
 			<span class="image main">
 				된장찌개
-				<img src="images/been.jpg">
+				<a href="#beensoup"><img src="images/been.jpg"></a>
 			</span>	
 			<span class="image main">
 				김치볶음밥
-				<img src="images/bokk.jpg">
-				</span>				
+				<a href="#kimbok"><img src="images/bokk.jpg"></a>
+			</span>				
 			</article>
 
 			<!-- Recipe 중식 -->
 			<article id="CHINA">
 				<h2 class="major">중식</h2>
-				<span id="move">
-				<a href="#KOREA">한식</a>
-				<a href="#USA">양식</a>
+			<div style="text-align: right;">
+				<a href="#KOREA">한식&ensp;</a>
+				<a href="#USA">양식&ensp;</a>
 				<a href="#JAPAN">일식</a>
-			</span>
+			</div>
 			<span class="image main">
 				짜장면
-				<img src="images/CHINA.jfif">
+				<a href=#jja><img src="images/CHINA.jfif"></a>
 			</span>	
 			<span class="image main">
 				짬뽕
-				<img src="images/jjam.jfif">
+				<a href=#bbong><img src="images/jjam.jfif"></a>
 			</span>	
 			<span class="image main">
 				탕수육
-				<img src="images/tang.jfif">
+				<a href=#tangsu><img src="images/tang.jfif"></a>
 				</span>				
 			</article>
 
 			<!-- Recipe 양식 -->
 			<article id="USA">
 				<h2 class="major">양식</h2>
-				<span id="move">
-				<a href="#CHINA">중식</a>
-				<a href="#KOREA">한식</a>
+			<div style="text-align: right;">
+				<a href="#CHINA">중식&ensp;</a>
+				<a href="#KOREA">한식&ensp;</a>
 				<a href="#JAPAN">일식</a>
-			</span>
+			</div>
 			<span class="image main">
 				스테이크
-				<img src="images/USA.jfif">
+				<a href=#steak><img src="images/USA.jfif"></a>
 			</span>
 			<span class="image main">
-				맥앤치즈
-				<img src="images/mac.jpg">
+				마카로니앤치즈
+				<a href=#cheese><img src="images/mac.jpg"></a>
 			</span>	
 			<span class="image main">
 				스파게티
-				<img src="images/spaghetti.jfif">
+				<a href=#pasta><img src="images/spaghetti.jfif"></a>
 			</span>					
 			</article>
 
 			<!-- Recipe 일식 -->
 			<article id="JAPAN">
 				<h2 class="major">일식</h2>
-				<span id="move">
-				<a href="#CHINA">중식</a>
-				<a href="#USA">양식</a>
+			<div style="text-align: right;">
+				<a href="#CHINA">중식&ensp;</a>
+				<a href="#USA">양식&ensp;</a>
 				<a href="#KOREA">한식</a>
-			</span>
+			</div>
 			<span class="image main">
-				스시
-				<img src="images/JAPAN.jfif">				
+				초밥
+				<a href=#sushi><img src="images/JAPAN.jfif"></a>				
 			</span>
 			<span class="image main">
 				우동
-				<img src="images/udon.png">
+				<a href=#udon><img src="images/udon.png"></a>
 			</span>	
 			<span class="image main">
 				오코노미야끼
-				<img src="images/oko.jpg">
-
-			</span>								
+				<a href=#oko><img src="images/oko.jpg"></a>
+			</span>	
 			</article>
-
+			
+			<!-- 한식 레시피 페이지 -->
+			<article id=kimchi>
+				<a href=#KOREA><h2 class="major">한식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>김치찌개</h3>
+				<span class="image main">				
+				<a><img src="images/KOREA.jfif"></a>
+				</span>	
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>	
+			</article>
+			
+			<article id=beensoup>
+				<a href=#KOREA><h2 class="major">한식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>된장찌개</h3>
+				<span class="image main">				
+				<a><img src="images/been.jpg"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+				
+			<article id=kimbok>
+				<a href=#KOREA><h2 class="major">한식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>김치볶음밥</h3>
+				<span class="image main">				
+				<a><img src="images/bokk.jpg"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<!-- 중식 레시피 페이지 -->
+			<article id=jja>
+				<a href=#CHINA><h2 class="major">중식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>짜장면</h3>
+				<span class="image main">				
+				<a><img src="images/CHINA.jfif"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<article id=bbong>
+				<a href=#CHINA><h2 class="major">중식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>짬뽕</h3>
+				<span class="image main">				
+				<a><img src="images/jjam.jfif"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<article id=tangsu>
+				<a href=#CHINA><h2 class="major">중식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>탕수육</h3>
+				<span class="image main">				
+				<a><img src="images/tang.jfif"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<!-- 양식 레시피 페이지 -->
+			<article id=steak>
+				<a href=#USA><h2 class="major">양식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>스테이크</h3>
+				<span class="image main">				
+				<a><img src="images/USA.jfif"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<article id=cheese>
+				<a href=#USA><h2 class="major">양식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>마카로니앤치즈</h3>
+				<span class="image main">				
+				<a><img src="images/mac.jpg"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<article id=pasta>
+				<a href=#USA><h2 class="major">양식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>스파게티</h3>
+				<span class="image main">				
+				<a><img src="images/spaghetti.jfif"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<!-- 일식 레시피 페이지 -->
+			<article id=sushi>
+				<a href=#JAPAN><h2 class="major">일식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>초밥</h3>
+				<span class="image main">				
+				<a><img src="images/JAPAN.jfif"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<article id=udon>
+				<a href=#JAPAN><h2 class="major">일식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>우동</h3>
+				<span class="image main">				
+				<a><img src="images/udon.png"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
+			<article id=oko>
+				<a href=#JAPAN><h2 class="major">일식</h2></a>
+				<div style="text-align: right;">
+					<a href="#KOREA">한식&ensp;</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
+				</div>
+				<h>오코노미야끼</h3>
+				<span class="image main">				
+				<a><img src="images/oko.jpg"></a>
+				</span>
+				<div>
+					<ul>
+						<li>소금 10g</li> 
+						<li>설탕 10g</li>
+						<li>설탕 10g</li>
+					</ul>
+				</div>
+				<div>
+					<p align="center"><input type="button" href="#" value="전송"> </p>
+				</div>			
+			</article>
+			
 			<!-- Board 게시판 -->
 			<article id="POST">
 				<h1 class="major">게시판</h1>
@@ -321,6 +612,8 @@
 			<article id="Product">
 				<h2 class="major">기기관리</h2>
 					<form action="ProductService" method="post">
+						<input name = "id" type = "text" placeholder = "아이디를 입력하세요" required = "required">
+						<br>
 						<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 						<br>
 						<select name="spice">

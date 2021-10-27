@@ -15,9 +15,7 @@ public class ProductDAO {
 	ArrayList<MemberVO> al = null;
 	boolean check = false;
 	int cnt = 0;
-	int setSalt;
-	int setSugar;
-	int setPepper;
+	
 	
 
 	// 동적 연결 하기
@@ -61,39 +59,27 @@ public class ProductDAO {
 	
 	//제품데이터 입력하기
 	public int addProduct(String product, String spice, String id) {
-		
-		if(spice.equals("소금")) {
-			setSalt = 0;
-		}else if(spice.equals("설탕")) {
-			setSugar = 0;
-		}else if(spice.equals("후추")) {
-			setPepper = 0;
-		}
-		
+	
 		try {
+			
 			connection();
 			
-//			3. 실행할 sql문 정의 (실행할때마다 값이 달라지는 부분은 ? 작성)
-			String sql = "insert into SPICE_DATA values (?,?,?,?,?)";
-			
-			
+			String sql = null;
+			if(spice.equals("소금")) {
+				sql = "insert into SPICE_DATA values (?, 1, 0, 0, ?)";
+			}else if(spice.equals("설탕")) {
+				sql = "insert into SPICE_DATA values (?, 0, 1, 0, ?)";
+			}else if(spice.equals("후추")) {
+				sql = "insert into SPICE_DATA values (?, 0, 0, 1, ?)";
+			}
+
 //			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
 			
-			
 //			5. 바인드 변수(?) 채우기
-			psmt.setNString(1, product);
-			
-			if(setSalt == 0) {
-				psmt.setInt(2, setSalt);
-			}else if(setSugar == 0){
-				psmt.setInt(3, setSugar);
-			}else if(setPepper == 0) {
-				psmt.setInt(4, setPepper);
-			}
-			psmt.setNString(5, id);
+			psmt.setString(1, product);
+			psmt.setString(2, id);
 
-			
 //			6. sql문 실행 후 결과처리
 			cnt = psmt.executeUpdate();
 			
