@@ -68,7 +68,7 @@
 						<li><select onchange="if(this.value) location.href=(this.value);" id="selMypage" onclick="test()">
 							<option disabled selected>Mypage</option>
 							<option value="#KOREA">沥焊荐沥</option>
-							<option value="#CHINA">扁扁包府</option>
+							<option value="#Product">扁扁包府</option>
 							
 						</select></li>
 						<script>
@@ -87,11 +87,6 @@
 		
 		<!-- Main -->
 		<div id="main">
-		
-			<article id="Mypage">
-				<h2 class="major">Mypage</h2>
-					
-			</article>
 
 			<!-- Intro 力前家俺 -->
 			<article id="intro">
@@ -218,6 +213,18 @@
 						<input type="submit" value="JoinUs" class="button fit">
 					</form>			
 			</article>	
+			
+			
+			<!-- 扁扁包府 -->
+			<article id="Product">
+				<h2 class="major">扁扁包府</h2>
+				<span class="image main">
+					
+					
+				</span>				
+			</article>
+			
+			
 		</div> 
 		<!-- Main 场 -->
 
