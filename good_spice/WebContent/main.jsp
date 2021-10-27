@@ -213,7 +213,7 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; Untitled. Design: <a href="https://naver.com">네이버</a>.</p>
+			<p class="copyright">&copy; GOOD_SPICE : <a href="https://www.smhrd.or.kr"/>스마트인재개발원</a>.</p>
 		</footer>
 	</div>
 
@@ -227,6 +227,8 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
+	
+	
 	function idcheck(){
 		let input = document.getElementById("input_id");
 		
