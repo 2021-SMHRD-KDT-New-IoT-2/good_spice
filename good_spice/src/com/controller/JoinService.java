@@ -43,7 +43,7 @@ public class JoinService extends HttpServlet {
 //			페이지 이동할 시 request,respone객체 전달
 			rd.forward(request, response);
 			
-			//response.sendRedirect("join_success.jsp?emainl="+email);
+			//response.sendRedirect("join_success.jsp?email="+email);
 			
 		}else {
 			System.out.println("가입실패!");
