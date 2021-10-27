@@ -3,22 +3,14 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <html>
-
-
-
 <head>
-	<title>Dimension by HTML5 UP</title>
+	<title>Best Moment</title>
 	<meta charset="EUC-kr" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css"/>
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-
-<style>
-.Recipe
-</style>
-
 </head>
 
 <body class="is-preload">
@@ -42,35 +34,38 @@
 			<div class="content">
 				<div class="inner">
 					<h1>Best-Moment</h1>
-					<p>May your life be happy with this food </p>
+					<p> May your life be happy with this food </p>
 				</div>
 			</div>
 			<nav>
-				<ul>
+				<ul class>
 					<li><a href="#intro">Intro</a></li>
-					<li class = "dropbtn">Recipe
-						<ul class = "dropdown-content">
-							<li><a href = "#KOREA">한식</a></li>
-							<li><a href = "#CHINA">중식</a></li>
-							<li><a href = "#USA">양식</a></li>
-							<li><a href = "#JAPAN">일식</a></li>
-						</ul>
-					</li>
+						<li><select onchange="if(this.value) location.href=(this.value);" id="select" onclick="test()">
+							<option disabled selected>Recipe</option>
+							<option value="#KOREA">한식</option>
+							<option value="#CHINA">중식</option>
+							<option value="#USA">양식</option>
+							<option value="#JAPAN">일식</option>
+						</select></li>
+						<script>
+						function test(){
+							$("#select").val("Recipe");							
+						}
+						</script>
 					<li><a href="#POST">Board</a></li>
 					<li><a href="#QNA">Q&A</a></li>
 					
 					
 					<%if(vo==null){%>
 						<li><a href="#Login">Login</a></li>
-						<%}else{ %>
-						<li><a href="#Mypage">Mypage</a></li>
-						<%}%>
-					
-					<%if(vo==null){%>
 						<li><a href="#Join">Join</a></li>
-						<%}else{ %>
+					<%}else { %>
+						<script>
+							alert("<%=vo.getid() %> 님 환영합니다.");
+						</script>
+						<li><a href="#Mypage">Mypage</a></li>
 						<li><a href="LogoutService">Logout</a></li>
-						<%}%>
+					<%}%> 
 				</ul>
 			</nav>
 			
@@ -133,8 +128,6 @@
 				</span>				
 			</article>
 
-
-
 			<!-- Board 게시판 -->
 			<article id="POST">
 				<h1 class="major">게시판</h1>
@@ -186,9 +179,9 @@
 			<article id="Login">
 				<h2 class="major">Login</h2>
 					<form action="LoginService" method="post">
-						<h3>ID</h3><input name="id" type="text" placeholder="ID를 입력하세요">
+						<h3>ID</h3><input name="id" type="text" placeholder="ID를 입력하세요" required="required">
 						<br>
-						<h3>PW</h3><input name="pw" type="password" placeholder="PW를 입력하세요">
+						<h3>PW</h3><input name="pw" type="password" placeholder="PW를 입력하세요" required="required">
 						<br>
 						<input type="submit" value="LogIn" class="button fit">
 					</form>
@@ -200,13 +193,13 @@
 			<article id="Join">
 				<h2 class="major">Join</h2>
 					<form action="JoinService" method="post">
-						<input name="id" id="input_email" type="text" placeholder="ID를 입력하세요">
+						<input name="id" id="input_id" type="text" placeholder="ID를 입력하세요" required="required">
 						<br>
-						<input type="button" value="Email중복체크" onclick="emailcheck()">									
+						<input type="button" value="Id중복체크" onclick="idcheck()">									
 						<br><br>
-						<input name="pw" type="password" placeholder="PW를 입력하세요">
+						<input name="pw" type="password" placeholder="PW를 입력하세요" required="required">
 						<br>
-						<input name="nick" type="text" placeholder="NICK를 입력하세요">
+						<input name="nick" type="text" placeholder="NICK를 입력하세요" required="required">
 						<br>
 						<input type="submit" value="JoinUs" class="button fit">
 					</form>			
@@ -232,7 +225,32 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
+	<script>
+	function idcheck(){
+		let input = document.getElementById("input_id");
+		
+		$.ajax({
+			type : "post", // 데이터 요청 방식 get/post
+			data : {"id":input.value}, // 전송하는 데이터
+			url : "IdCheckService", // 데이터를 요청하는 서버페이지 url
+			dataType : "text", //응답데이터의 형식
+			success : function(data){ // 성공했을 때, 함수 호출 function(전송 받은 값)
+									
+				if(data=="true"){
+					//alert(sp.innerText="사용 불가능한 아이디 입니다.");
+					alert("사용 불가능한 아이디 입니다.")
+				}else{
+					//alert(sp.innerText="사용 가능 한 아이디 입니다.");
+					alert("사용 가능한 아이디 입니다.")
+				}
+			},
+			error : function(){ // 실패
+				alert("통신실패")
+			}
+		});
+		
+	}
+	</script>
 </body>
 
 </html>
