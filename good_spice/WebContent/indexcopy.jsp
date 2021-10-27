@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Dimension by HTML5 UP</title>
-	<meta charset="EUC-kr" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css"/>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/main.css"/>
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
 </head>
-
 <body class="is-preload">
 
 	<!-- Wrapper -->
@@ -28,8 +26,8 @@
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1>Best-Moment</h1>
-					<p>May your life be happy with this food </p>
+					<h1>Smart Spice</h1>
+					<p>May your life be happy with this Spice </p>
 				</div>
 			</div>
 			<nav>
@@ -53,57 +51,118 @@
 		
 		<!-- Main -->
 		<div id="main">
-	
+
 			<!-- Intro -->
 			<article id="intro">
 				<h2 class="major">제품소개</h2>
+								  
 				<span class="image main">
-					<video controls muted poster="/images/pic1.jpg">
+					<video controls muted poster="images/pic1.jpg">
 					<source src="/images/KakaoTalk_20211018_161606410.mp4" type="video/mp4">
 				  </video></span>
 										
-				<P>제품소개.</P>
+				<P>저희 "스마트 양념통"은 요리를 보다 맛있게 만들기 위해 구상된 제품입니다.
+					요리시 가장 어려운 간 맞추는 일을 보다 간편하게, 보다 완벽하게 할 수 있도록 돕는 기능 할 것입니다.</P>
+					<br>
+					<p>당신의 식탁에 행복이 가득하기를 바랍니다.</p>
+					<p><a href="https://www.smhrd.or.kr/">구매처</a></p>
 			</article>
 
-			<!-- Intro -->
-		<article id="KOREA">
+			<!-- 한식-->
+		<article id="KOREA" >
 			<h2 class="major">한식</h2>
+			<span id="move" >
+				<a href="#CHINA">중식</a>
+				<a href="#USA">양식</a>
+				<a href="#JAPAN">일식</a>
+			</span>
 			<span class="image main">
-				김치
-				<img src="/images/KOREA.jfif">
+				김치찌개
+				<a href="http://127.0.0.1:5502/list.html"target="_blank"><img src="images/KOREA.jfif"></a>
+			</span>	
+			<span class="image main">
+				된장찌개
+				<img src="images/been.jpg">
+			</span>	
+			<span class="image main">
+				김치볶음밥
+				<img src="images/bokk.jpg">
 			</span>				
 		</article>
 
-		<!-- Intro -->
+
+		
+
+		<!-- 중식 -->
 		<article id="CHINA">
 			<h2 class="major">중식</h2>
+			<span id="move">
+				<a href="#KOREA">한식</a>
+				<a href="#USA">양식</a>
+				<a href="#JAPAN">일식</a>
+			</span>
 			<span class="image main">
 				짜장면
-				<img src="/images/CHINA.jfif">
+				<img src="images/CHINA.jfif">
+			</span>	
+			<span class="image main">
+				짬뽕
+				<img src="images/jjam.jfif">
+			</span>	
+			<span class="image main">
+				탕수육
+				<img src="images/tang.jfif">
 			</span>				
 		</article>
 
-		<!-- Intro -->
+		<!-- 양식-->
 		<article id="USA">
 			<h2 class="major">양식</h2>
+			<span id="move">
+				<a href="#CHINA">중식</a>
+				<a href="#KOREA">한식</a>
+				<a href="#JAPAN">일식</a>
+			</span>
 			<span class="image main">
 				스테이크
-				<img src="/images/USA.jfif">
-			</span>				
+				<img src="images/USA.jfif">
+			</span>
+			<span class="image main">
+				맥앤치즈
+				<img src="images/mac.jpg">
+			</span>	
+			<span class="image main">
+				스파게티
+				<img src="images/spaghetti.jfif">
+			</span>					
 		</article>
 
-		<!-- Intro -->
+		<!-- 일식 -->
 		<article id="JAPAN">
 			<h2 class="major">일식</h2>
+			<span id="move">
+				<a href="#CHINA">중식</a>
+				<a href="#USA">양식</a>
+				<a href="#KOREA">한식</a>
+			</span>
 			<span class="image main">
-				<img src="/images/JAPAN.jfif">
-				쑤시
-			</span>				
+				스시
+				<img src="images/JAPAN.jfif">				
+			</span>
+			<span class="image main">
+				우동
+				<img src="images/udon.png">
+			</span>	
+			<span class="image main">
+				오코노미야끼
+				<img src="images/oko.jpg">
+
+			</span>					
 		</article>
 
-		<!-- Intro -->
+		<!-- 게시판 -->
 		<article id="POST">
-			<h1 class="major">게시판</h1>
+			<a href="list.html"><h1 class="major">게시판</h1></a>
 			<span class="image main">
 				<table>
 					<tr>
@@ -119,13 +178,46 @@
 						<td>성민</td>
 						<td>11111</td>
 					</tr>
+					<tr>
+						<td>1</td>
+						<td>힘들어</td>
+						<td>성민</td>
+						<td>11111</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>힘들어</td>
+						<td>성민</td>
+						<td>11111</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>힘들어</td>
+						<td>성민</td>
+						<td>11111</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>힘들어</td>
+						<td>성민</td>
+						<td>11111</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>힘들어</td>
+						<td>성민</td>
+						<td>11111</td>
+					</tr>
 				</table>
-
+			
+					
+			
 			</span>				
 		</article>
 
 		<article id="QNA">
 			<h1 class="major">Q&A</h1>
+			<span class="image main">
 				<table>
 					<tr>
 						<th>번호</th>
@@ -145,38 +237,50 @@
 				
 				
 				<article id="Login">
-					<h2 class="major">Login</h2>
-						<form action="LoginService" method="post">
-							<h3>ID</h3><input name="id" type="text" placeholder="ID를 입력하세요">
-							<br>
-							<h3>PW</h3><input name="pw" type="password" placeholder="PW를 입력하세요">
-							<br>
-							<input type="submit" value="LogIn" class="button fit">
-						</form>
+					<form>
+						<h2 class="major">Login</h2>
+						<h3>ID</h3>
+						<input type="text">
+						<br>
+						<h3>PW</h3>
+						<input type="password">	
+						<br>		
+						<div style="text-align: center;">
+							<input type="submit" value="로그인" >
+						</div>
+					</form>
 				</article>
 
 				<article id="Join">
-					<h2 class="major">Join</h2>
-						<form action="JoinService" method="post">
-								<input name="id" id="input_email" type="text" placeholder="ID를 입력하세요">
-								<br>
-								<input type="button" value="Email중복체크" onclick="emailcheck()">									
-								<br><br>
-								<input name="pw" type="password" placeholder="PW를 입력하세요">
-								<br>
-								<input name="nick" type="text" placeholder="NICK를 입력하세요">
-								<br>
-								<input type="submit" value="JoinUs" class="button fit">
-						</form>	
-								
+					<form  >
+						<h2 class="major">Join</h2>
+						<h3>ID</h3>
+						<input type="text">
+						<br>
+						<h3>PW</h3>
+						<input type="password">	
+						<br>
+						<h3>Nick</h3>	
+						<input type="text">
+						<br>
+						<div style="text-align: center;">
+							<input type="submit" value="회원가입" >
+						</div>	
+				 	</form>	
 				</article>
-				
-											
+					
+			
+			</span>				
+		</article>
+
+		
 		</div>
+
+		
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; Untitled. Design: <a href="https://naver.com">네이버</a>.</p>
+			<p class="copyright">&copy; Untitled. Design: <a href="https://www.smhrd.or.kr/">스인재</a>.</p>
 		</footer>
 	</div>
 
@@ -191,5 +295,4 @@
 	<script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
