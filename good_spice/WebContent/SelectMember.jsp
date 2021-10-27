@@ -17,7 +17,7 @@
 <body class="is-preload">
 	<%
 		MemberDAO dao = new MemberDAO();
-		ArrayList<MemberVO> al =dao.selectAll();
+		ArrayList<MemberVO> al = dao.selectAll();
 		System.out.print(al.size());
 	%>
 	<!-- Wrapper -->
@@ -36,7 +36,7 @@
 						<td><%=vo.getid() %></td>
 						<td><%=vo.getpw() %></td>
 						<td><%=vo.getnick() %></td>
-						<td><a href="DeleteService?id=<%=vo.getid()%>">삭제</a></td>
+						<td><a href="DeleteService?id=<%=vo.getid()%>" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 					</tr>
 				<%}%>
 				</table>	

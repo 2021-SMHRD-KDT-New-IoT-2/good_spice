@@ -199,7 +199,7 @@ public class MemberDAO {
 		try {
 			connection();
 			
-				String sql = "DELETE from MEMBER where MEM_ID=?;";
+				String sql = "DELETE from MEMBER where MEM_ID=?";
 						
 			
 	//			4. sql巩 角青按眉 (PreparedStatment)积己
