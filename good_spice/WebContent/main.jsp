@@ -295,6 +295,8 @@
 			<article id="Product">
 				<h2 class="major">기기관리</h2>
 					<form action="ProductService" method="post">
+						<input name = "id" type = "text" placeholder = "아이디를 입력하세요" required = "required">
+						<br>
 						<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 						<br>
 						<select name="spice">
