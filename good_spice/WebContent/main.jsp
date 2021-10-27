@@ -40,7 +40,7 @@
 			<nav>
 				<ul class>
 					<li><a href="#intro">Intro</a></li>
-						<li><select onchange="if(this.value) location.href=(this.value);" id="select" onclick="test()">
+						<li><select onchange="if(this.value) location.href=(this.value);" id="select" onclick="menu()">
 							<option disabled selected>Recipe</option>
 							<option value="#KOREA">한식</option>
 							<option value="#CHINA">중식</option>
@@ -49,7 +49,7 @@
 						</select></li>
 						
 						<script>
-						function test(){
+						function menu(){
 							$("#select").val("Recipe");							
 									}
 						</script>
@@ -62,17 +62,17 @@
 						<li><a href="#Join">Join</a></li>
 					<%}else { %>
 						<script>
-							alert("<%=vo.getid() %> 님 환영합니다.");
+							alert("<%=vo.getnick() %> 님 환영합니다.");
 						</script>
 						
-						<li><select onchange="if(this.value) location.href=(this.value);" id="selMypage" onclick="test()">
+						<li><select onchange="if(this.value) location.href=(this.value);" id="selMypage" onclick="info()">
 							<option disabled selected>Mypage</option>
-							<option value="#KOREA">정보수정</option>
+							<option value="#ChangeInfo">정보수정</option>
 							<option value="#CHINA">기기관리</option>
 							
 						</select></li>
 						<script>
-						function test(){
+						function info(){
 							$("#selMypage").val("Mypage");							
 									}
 						</script>
@@ -510,8 +510,6 @@
 				</span>				
 			</article>
 
-
-
 			<!-- Q&A -->
 			<article id="QNA">
 				<h1 class="major">Q&A</h1>
@@ -532,6 +530,20 @@
 					</table>
 			</article>
 				
+			<!-- 개인정보 수정 -->	
+			<article id="ChangeInfo">
+				<h2 class="major">개인정보 수정</h2>
+				<form action="UpdateService" method="post">
+					<h3>현재ID</h3><input name="id" type="text" placeholder="ID를 입력하세요" required="required">
+							<br>
+					<h3>PW</h3><input name="pw" type="password" placeholder="변경할 PW를 입력하세요" required="required">
+					<br>
+					<h3>NICK</h3><input name="nick" type="text" placeholder="변경할 NICK을 입력하세요" required="required">
+					<br>
+					<input type="submit" value="Change" class="button fit">
+					</form>
+				</span>				
+			</article>
 				
 				
 			<!-- Login 로그인 -->
