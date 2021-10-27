@@ -29,15 +29,12 @@ public class DeleteService extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("삭제성공");
-			response.sendRedirect("selectMember.jsp");
+			response.sendRedirect("SelectMember.jsp");
 		}else {
 			System.out.println("삭제실패");
-			response.sendRedirect("selectMember.jsp");
+			response.sendRedirect("SelectMember.jsp");
 		}
-		
-	
-		
-		
+
 	}
 
 }

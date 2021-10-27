@@ -11,6 +11,11 @@ public class MemberVO {
 		this.pw = pw;
 		this.nick = nick;
 	}
+	
+	public MemberVO() {
+		
+	}
+	
 //	¸Þ¼­µå(get)
 	public String getid() {
 		return id;
