@@ -62,13 +62,9 @@
 					
 					<%if(vo==null){%>
 						<li><a href="#Login">Login</a></li>
-						<%}else{ %>
-						<li><a href="#Mypage">Mypage</a></li>
-						<%}%>
-					
-					<%if(vo==null){%>
 						<li><a href="#Join">Join</a></li>
 						<%}else{ %>
+						<li><a href="#Mypage">Mypage</a></li>
 						<li><a href="LogoutService">Logout</a></li>
 						<%}%>
 				</ul>
