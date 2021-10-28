@@ -164,7 +164,7 @@ public class MemberDAO {
 			
 			connection();
 //			3. 실행할 sql문 정의 (실행할때마다 값이 달라지는 부분은 ? 작성)
-			String sql = "select email,tel,address from WEB_MEMBER ";
+			String sql = "select MEM_ID,MEM_PW,MEM_NICK from MEMBER ";
 			
 //			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
@@ -174,11 +174,11 @@ public class MemberDAO {
 			
 			while(rs.next()){
 				
-				String get_email = rs.getNString("email");
-				String get_tel = rs.getNString("tel");
-				String get_address = rs.getNString("address");
+				String get_id = rs.getNString("MEM_ID");
+				String get_pw = rs.getNString("MEM_PW");
+				String get_nick = rs.getNString("MEM_NICK");
 				
-				vo = new MemberVO(get_email,get_tel,get_address);	
+				vo = new MemberVO(get_id,get_pw,get_nick);	
 //				vo값을 al에 add
 				al.add(vo);
 			}
@@ -193,18 +193,19 @@ public class MemberDAO {
 		return al;
 	}
 //	회원 삭제
-	public int delete(String email) {
+	public int delete(String id) {
 //		삭제완료 => 삭제완료!
 //		삭제미완료 => 삭제실패!
 		try {
 			connection();
 			
-				String sql = "DELETE from WEB_MEMBER where email=?";
+				String sql = "DELETE from MEMBER where MEM_ID=?";
+						
 			
 	//			4. sql문 실행객체 (PreparedStatment)생성
 				psmt = conn.prepareStatement(sql);
 
-				psmt.setNString(1, email);
+				psmt.setString(1, id);
 	//			6. sql문 실행 후 결과처리
 				cnt = psmt.executeUpdate();
 				
