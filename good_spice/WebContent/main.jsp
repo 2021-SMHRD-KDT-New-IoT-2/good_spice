@@ -657,7 +657,9 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 						<br> -->
 					<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 					<br>
+					<div style="text-align: center;">
 					<input type="button" value="제품번호중복체크" onclick="prodcheck()"> 
+					</div>
 					<br> 
 					<br> <select name="spice">
 						<option value="">양념을 선택하세요.</option>
