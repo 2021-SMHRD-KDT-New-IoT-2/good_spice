@@ -64,35 +64,6 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 					<li><a href="#POST">Post</a></li>
 					<li><a href="#QNA">Q&A</a></li>
 
-				<%-- 	<%
-						if (vo == null) {
-					%>
-					<li><a href="#Login">Login</a></li>
-					<li><a href="#Join">Join</a></li>
-					<%
-						} else {
-					%>
-					<script>
-                     alert("<%=vo.getid()%>님 환영합니다.");
-					</script>
-					<li><select
-						onchange="if(this.value) location.href=(this.value);"
-						id="selMypage" onclick="test()">
-							<option disabled selected>Mypage</option>
-							<option value="#KOREA">정보수정</option>
-							<option value="#Product">기기관리</option>
-
-					</select></li>
-					<script>
-						function test() {
-							$("#selMypage").val("Mypage");
-						}
-					</script>
-
-
-					<li><a href="LogoutService">Logout</a></li>
-					<%}%> --%>
-
 					<%
 						if (vo == null) {
 					%>
@@ -117,7 +88,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 						onchange="if(this.value) location.href=(this.value);"
 						id="Adminpage" onclick="admin()">
 							<option disabled selected>Admin</option>
-							<option value="#ChangeInfo">레시피</option>
+							<option value="#recipepost">레시피</option>
 							<option value="SelectMember.jsp">회원정보</option>
 					</select></li>
 
@@ -706,7 +677,28 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 				</table>
 			</article>
 
-
+		
+		<article id="recipepost">
+				<h2 class="major">RecipePost</h2>
+		
+				<form action="RecipePost" method="post">
+					<h3>요리 명</h3>
+					<input name="rec_name" type="text" placeholder="요리 이름 입력" required="required">
+					<br>
+					<h3>소금</h3> 
+					<input name="salt" type="text" placeholder="소금 양 입력" required="required"> 
+					<br> 
+					<h3>설탕</h3>
+					<input name="sugar" type="text" placeholder="설탕 양 입력" required="required">
+					<br>
+					<h3>후추</h3>
+					<input name="pepper" type="text" placeholder="후추 양 입력" required="required">
+					<br>
+					<div style="text-align: center;">
+						<input type="submit" value="작성">
+					</div>
+				</form>
+			</article>
 
 		</div>
 		<!-- Main 끝 -->
