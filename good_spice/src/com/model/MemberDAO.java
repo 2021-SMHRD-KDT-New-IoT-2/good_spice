@@ -221,7 +221,7 @@ public class MemberDAO {
 		try {
 			connection();
 //			3. 실행할 sql문 정의 (실행할때마다 값이 달라지는 부분은 ? 작성)
-			String sql = "select * from MEMBER where MEM_ID=?;";
+			String sql = "select * from MEMBER where MEM_ID=?";
 			
 //			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
