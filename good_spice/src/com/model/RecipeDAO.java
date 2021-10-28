@@ -57,8 +57,7 @@ public class RecipeDAO {
 //	레시피 등록
 	public int RecipePost(String rec_name, String salt,String sugar,String pepper, String id) {
 		try {
-			int count=0;
-			count=+1;
+
 			connection();
 			
 			String sql = "insert into RECIPE values (RECIPE_NUM.NEXTVAL,?,?,?,?,?)";
