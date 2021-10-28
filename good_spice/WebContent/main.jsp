@@ -764,7 +764,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 				},
 				error : function() { // 실패
 					alert("통신실패")
-				}
+				}}
 			});
 		/* 제품 중복 체크 */
 		}function prodcheck() {
