@@ -1,3 +1,5 @@
+<%@page import="com.model.ProductVO"%>
+<%@page import="com.model.ProductDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.MemberDAO"%>
 <%@page import="com.model.MemberVO"%>
@@ -24,6 +26,12 @@
 	ArrayList<MemberVO> al = dao.selectAll();
 	%>
 
+	<% 
+	
+	ProductDAO Pdao = new ProductDAO();
+	ArrayList<ProductVO> Pal = Pdao.selectAll();
+	
+	%>
 	<!-- Wrapper -->
 
 	<div id="wrapper">
@@ -45,8 +53,7 @@
 				<ul class>
 					<li><a href="#intro">Intro</a></li>
 
-					<li><select
-onchange="if(this.value) location.href=(this.value);" id="select"
+					<li><select onchange="if(this.value) location.href=(this.value);" id="select"
 						onclick="menu()">
 							<option disabled selected>Recipe</option>
 							<option value="#KOREA">한식</option>
@@ -105,7 +112,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 						} else {
 					%>
 					<script>
-									alert("<%=vo.getnick()%>님 환영합니다.");
+							alert("<%=vo.getnick()%>님 환영합니다.");
 					</script>
 
 					<li><select
@@ -628,7 +635,9 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 						<br> -->
 					<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 					<br>
-					<input type="button" value="제품번호중복체크" onclick="prodcheck()" required="required"> 
+					<div style="text-align: center;">
+					<input type="button" value="제품번호중복체크" onclick="prodcheck()"> 
+					</div>
 					<br> 
 					<br> <select name="spice">
 						<option value="">양념을 선택하세요.</option>
@@ -646,6 +655,15 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 						<td>제품번호</td>
 						<td>양념</td>
 					</tr>
+					<!-- 제품번호 출력 -->
+					<% for(int i = 0; i < Pal.size(); i++){
+						ProductVO Pvo = Pal.get(i);%>
+					<tr>
+						<td><%= Pvo.getProduct() %></td>
+						<td><%= Pvo.getSpice() %></td>
+						<td><a href = "DeleteProduct?product=<%=Pvo.getProduct()%>">삭제</a>
+					</tr>
+					<%} %>
 				</table>
 				<br> <br>
 

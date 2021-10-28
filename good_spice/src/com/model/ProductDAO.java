@@ -6,13 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpSession;
+
 public class ProductDAO {
 
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	MemberVO vo = null;
-	ArrayList<MemberVO> al = null;
+	ProductVO vo = null;
+	ArrayList<ProductVO> al = null;
 	boolean check = false;
 	int cnt = 0;
 	
@@ -125,4 +128,43 @@ public class ProductDAO {
 		return check;
 	}
 	
+	
+	
+	public ArrayList<ProductVO> selectAll(){
+		al = new ArrayList<ProductVO>();
+	
+		try {
+			connection();
+
+			String sql = "select prodouct, salt, sugar, pepper from spice_data";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			//psmt.setString(1, id);
+			
+			while (rs.next()) {
+				String get_product = rs.getString("prodouct");
+				String get_spice = null;
+					if(rs.getString(2).equals("1")) {
+						get_spice = "소금";
+					}else if(rs.getString(3).equals("1")) {
+						get_spice = "설탕";
+					}else if(rs.getString(4).equals("1")) {
+						get_spice = "후추";
+					}
+
+				vo = new ProductVO(get_product, get_spice);
+				
+				al.add(vo);
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("조회 실패");
+			e.printStackTrace();
+
+		} finally {
+			close();
+		}
+		return al;
+	}
 }
