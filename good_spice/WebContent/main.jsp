@@ -19,18 +19,19 @@
 </head>
 
 <body class="is-preload">
-	<%
-		//현재 로그인 상태인지 판별 (vo == null => 로그인하지 않은 상태)
+	<!-- 멤버 -->
+	<%	
 	MemberVO vo = (MemberVO) session.getAttribute("member");
 	MemberDAO dao = new MemberDAO();
 	ArrayList<MemberVO> al = dao.selectAll();
-	%>
+	
+	//<!-- 제품 -->
 
-	<% 
-	
 	ProductDAO Pdao = new ProductDAO();
-	ArrayList<ProductVO> Pal = Pdao.selectAll();
-	
+	ArrayList<ProductVO> Pal =new ArrayList<ProductVO>();
+	if(vo!=null){
+	Pal = Pdao.selectAll(vo.getid());
+	}
 	%>
 	<!-- Wrapper -->
 
@@ -631,8 +632,6 @@
 			<article id="Product">
 				<h2 class="major">기기관리</h2>
 				<form action="ProductService" method="post">
-					<!-- <input name = "id" type = "text" placeholder = "아이디를 입력하세요" required = "required">
-						<br> -->
 					<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 					<br>
 					<div style="text-align: center;">
@@ -656,14 +655,16 @@
 						<td>양념</td>
 					</tr>
 					<!-- 제품번호 출력 -->
-					<% for(int i = 0; i < Pal.size(); i++){
-						ProductVO Pvo = Pal.get(i);%>
+					
+					<%for(ProductVO pvo:Pal){%>
+					
 					<tr>
-						<td><%= Pvo.getProduct() %></td>
-						<td><%= Pvo.getSpice() %></td>
-						<td><a href = "DeleteProduct?product=<%=Pvo.getProduct()%>">삭제</a>
+						<td><%= pvo.getProduct() %></td>
+						<td><%= pvo.getSpice() %></td>
+						<td><a href="DeleteProduct?product=<%=pvo.getProduct()%>" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 					</tr>
-					<%} %>
+				
+					<%}%>
 				</table>
 				<br> <br>
 

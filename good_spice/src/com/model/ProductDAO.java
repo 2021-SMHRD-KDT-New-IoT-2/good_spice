@@ -128,16 +128,19 @@ public class ProductDAO {
 		return check;
 	}
 	
-	
-	
-	public ArrayList<ProductVO> selectAll(){
+//	力前 格废
+	public ArrayList<ProductVO> selectAll(String mem_id){
 		al = new ArrayList<ProductVO>();
-	
+		
+
 		try {
 			connection();
 
-			String sql = "select prodouct, salt, sugar, pepper from spice_data";
+			String sql = "select prodouct, salt, sugar, pepper from spice_data where MEM_ID=?";
 			psmt = conn.prepareStatement(sql);
+			
+			 psmt.setString(1, mem_id); 
+			
 			rs = psmt.executeQuery();
 			//psmt.setString(1, id);
 			
@@ -166,5 +169,28 @@ public class ProductDAO {
 			close();
 		}
 		return al;
+	}
+//	力前昏力
+	public int delete(String product) {
+
+		try {
+			connection();
+			
+				String sql = "DELETE from SPICE_DATA where PRODOUCT=?";
+						
+			
+	//			4. sql巩 角青按眉 (PreparedStatment)积己
+				psmt = conn.prepareStatement(sql);
+
+				psmt.setString(1, product);
+	//			6. sql巩 角青 饶 搬苞贸府
+				cnt = psmt.executeUpdate();
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();	
+		}
+		return cnt;
 	}
 }

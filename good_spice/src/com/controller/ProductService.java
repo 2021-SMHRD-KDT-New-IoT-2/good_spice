@@ -35,10 +35,10 @@ public class ProductService extends HttpServlet {
       
       if(cnt>0) {
          System.out.println("등록성공!");
-         response.sendRedirect("main.jsp");
+         response.sendRedirect("main.jsp#Product");
       }else {
          System.out.println("등록실패!");
-         response.sendRedirect("main.jsp");
+         response.sendRedirect("main.jsp#Product");
       }
       
       //MemberVO vo = new MemberVO();
