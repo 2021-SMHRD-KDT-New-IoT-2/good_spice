@@ -650,7 +650,7 @@
 						<br> -->
 					<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 					<br>
-					<input type="button" value="제품번호중복체크" onclick="prodcheck()"> 
+					<input type="button" value="제품번호중복체크" onclick="prodcheck()" required="required"> 
 					<br> 
 					<br> <select name="spice">
 						<option value="">양념을 선택하세요.</option>
@@ -738,9 +738,7 @@
 
 			$.ajax({
 				type : "post", // 데이터 요청 방식 get/post
-				data : {
-					"id" : input.value
-				}, // 전송하는 데이터
+				data : {"id" : input.value}, // 전송하는 데이터
 				url : "IdCheckService", // 데이터를 요청하는 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) { // 성공했을 때, 함수 호출 function(전송 받은 값)
@@ -757,6 +755,7 @@
 					alert("통신실패")
 				}
 			});
+		
 		/* 제품 중복 체크 */
 		}function prodcheck() {
 			let input_prod = document.getElementById("input_product");
