@@ -747,9 +747,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 
 			$.ajax({
 				type : "post", // 데이터 요청 방식 get/post
-				data : {
-					"id" : input.value
-				}, // 전송하는 데이터
+				data : {"id" : input.value}, // 전송하는 데이터
 				url : "IdCheckService", // 데이터를 요청하는 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) { // 성공했을 때, 함수 호출 function(전송 받은 값)
@@ -766,6 +764,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 					alert("통신실패")
 				}
 			});
+		
 		/* 제품 중복 체크 */
 		}function prodcheck() {
 			let input_prod = document.getElementById("input_product");
