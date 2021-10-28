@@ -46,9 +46,8 @@
 					<li><a href="#intro">Intro</a></li>
 
 					<li><select
-						onchange="if(this.value) location.href=(this.value);" id="select"
+onchange="if(this.value) location.href=(this.value);" id="select"
 						onclick="menu()">
-
 							<option disabled selected>Recipe</option>
 							<option value="#KOREA">한식</option>
 							<option value="#CHINA">중식</option>
@@ -61,8 +60,11 @@
 							$("#select").val("Recipe");							
 									}
 						</script>
+						
+					<li><a href="#POST">Post</a></li>
+					<li><a href="#QNA">Q&A</a></li>
 
-					<%
+				<%-- 	<%
 						if (vo == null) {
 					%>
 					<li><a href="#Login">Login</a></li>
@@ -73,7 +75,6 @@
 					<script>
                      alert("<%=vo.getid()%>님 환영합니다.");
 					</script>
-
 					<li><select
 						onchange="if(this.value) location.href=(this.value);"
 						id="selMypage" onclick="test()">
@@ -90,7 +91,7 @@
 
 
 					<li><a href="LogoutService">Logout</a></li>
-					<%}%>
+					<%}%> --%>
 
 					<%
 						if (vo == null) {
@@ -582,6 +583,12 @@
 						<th>조회수</th>
 					</tr>
 
+					<tr>
+						<td>1</td>
+						<td>힘들어</td>
+						<td>성민</td>
+						<td>11111</td>
+					</tr>
 					<tr>
 						<td>1</td>
 						<td>힘들어</td>
