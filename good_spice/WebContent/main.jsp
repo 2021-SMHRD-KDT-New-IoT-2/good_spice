@@ -86,11 +86,7 @@
 			
 		</header>
 		<!-- header 끝 -->
-		
-		
-		
-		
-		
+				
 		<!-- Main -->
 		<div id="main">
 
@@ -497,16 +493,20 @@
 							<th>번호</th>
 							<th>제목</th>
 							<th>작성자</th>
-							<th>조회수</th>
+							<th>작성일자</th>
 						</tr>
 	
 						<tr>
 							<td>1</td>
 							<td>힘들어</td>
 							<td>성민</td>
-							<td>11111</td>
+							<td></td>
 						</tr>
 					</table>
+						<div>
+							<p align="center"><input type="button" href="write.html" value="글쓰기"> </p>
+						</div>
+						
 	
 				</span>				
 			</article>
