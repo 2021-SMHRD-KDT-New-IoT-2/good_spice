@@ -48,6 +48,14 @@
 				<div class="inner">
 					<h1>Smart Spice</h1>
 					<p>May your life be happy with this Spice</p>
+					<%if (vo != null) {%>
+					<%String GetId = vo.getid();%>
+						<%if (GetId.equals("admin")) {%>
+						<h2>관리자님 환영합니다</h2>
+						<%} else {%>
+						<h2><%=vo.getid() %>님 환영합니다</h2>
+						<%} %>
+						<%} %>
 				</div>
 			</div>
 			<nav>
@@ -71,81 +79,36 @@
 							$("#select").val("Recipe");							
 									}
 						</script>
+					<li><a href="#POST">Post</a></li>
+					<li><a href="#QNA">Q&A</a></li>
 
-
-					<%
-						if (vo == null) {
-					%>
+					<%if (vo == null) {%>
+					
 					<li><a href="#Login">Login</a></li>
 					<li><a href="#Join">Join</a></li>
-					<%
-						} else {
-					%>
-					<script>
-                     alert("<%=vo.getid()%>님 환영합니다.");
-					</script>
+					
+					<%} else {%>
 
-					<li><select
-						onchange="if(this.value) location.href=(this.value);"
-						id="selMypage" onclick="test()">
-							<option disabled selected>Mypage</option>
-							<option value="#KOREA">정보수정</option>
-							<option value="#Product">기기관리</option>
+					<%String GetIdd = vo.getid();%>
+						<%if (GetIdd.equals("admin")) {%>
+						
+						<li><select
+							onchange="if(this.value) location.href=(this.value);"
+							id="Adminpage" onclick="admin()">
+								<option disabled selected>Admin</option>
+								<option value="#recipepost">레시피</option>
+								<option value="#MemberInfo">회원정보</option>
+						</select></li>
+	
+						<script>
+									function admin(){
+										$("#Adminpage").val("Admin");					
+												}
+									</script>
+	
+						<li><a href="LogoutService">Logout</a></li>
 
-					</select></li>
-					<script>
-						function test() {
-							$("#selMypage").val("Mypage");
-						}
-					</script>
-
-
-					<li><a href="LogoutService">Logout</a></li>
-					<%}%>
-
-
-					<%
-						if (vo == null) {
-					%>
-					<li><a href="#Login">Login</a></li>
-					<li><a href="#Join">Join</a></li>
-					<%
-						} else {
-					%>
-
-					<%
-						String GetId = vo.getid();
-					%>
-
-					<%
-						if (GetId.equals("admin")) {
-					%>
-					<script>
-							alert("관리자님 환영합니다.");
-							</script>
-
-					<li><select
-						onchange="if(this.value) location.href=(this.value);"
-						id="Adminpage" onclick="admin()">
-							<option disabled selected>Admin</option>
-							<option value="#recipepost">레시피</option>
-							<option value="SelectMember.jsp">회원정보</option>
-					</select></li>
-
-					<script>
-								function admin(){
-									$("#Adminpage").val("Admin");					
-											}
-								</script>
-
-					<li><a href="LogoutService">Logout</a></li>
-
-					<%
-						} else {
-					%>
-					<script>
-							alert("<%=vo.getnick()%>님 환영합니다.");
-					</script>
+					<%} else {%>
 
 					<li><select
 						onchange="if(this.value) location.href=(this.value);"
@@ -714,14 +677,12 @@
 						<td>NICK</td>
 						<td>Delete</td>
 					</tr>
-					<%
-						for (MemberVO member : al) {
-					%>
+					<%for(MemberVO mvo:al){%>
 					<tr>
-						<td><%=member.getid()%></td>
-						<td><%=member.getpw()%></td>
-						<td><%=member.getnick()%></td>
-						<td><a href="DeleteService?id=<%=member.getid()%>">삭제</a></td>
+						<td><%=mvo.getid() %></td>
+						<td><%=mvo.getpw() %></td>
+						<td><%=mvo.getnick() %></td>
+						<td><a href="DeleteService?id=<%=mvo.getid()%>" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 					</tr>
 					<%}%>
 				</table>
