@@ -10,15 +10,20 @@ public class ProductVO {
 	public ProductVO(String product, String spice) {
 		this.product = product;
 		this.spice = spice;
-		
 	}
-	//¸Å¼­µå(get)
+	
+	public void setSpice(String spice) {
+		this.spice = spice;
+	}
+	
 	public String getProduct() {
 		return product;
 	}
+	
 	public String getSpice() {
 		return spice;
 	}
+	
 	public String getid() {
 		return id;
 	}

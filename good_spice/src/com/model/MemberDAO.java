@@ -20,7 +20,6 @@ public class MemberDAO {
 	int cnt = 0;
 //	동적연결
 	public void connection() {
-
 	
 		try {
 			//1. 드라이버 동적로딩

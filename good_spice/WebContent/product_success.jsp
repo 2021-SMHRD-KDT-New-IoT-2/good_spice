@@ -24,7 +24,7 @@
 	
 		<span><h1><%=ID %>님의 제품이 등록되었습니다.</h1></span>
 		<h3><a href="main.jsp">메인페이지</a>	</h3>					
-</div>
+	</div>
 
 
 	<!-- BG -->

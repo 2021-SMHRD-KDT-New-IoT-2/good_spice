@@ -10,9 +10,8 @@
 <head>
 <title>Best Moment</title>
 <meta charset="EUC-kr" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
@@ -29,6 +28,7 @@
 
 	ProductDAO Pdao = new ProductDAO();
 	ArrayList<ProductVO> Pal =new ArrayList<ProductVO>();
+	boolean ch = true;
 	if(vo!=null){
 		Pal = Pdao.selectAll(vo.getid());
 	}
@@ -50,8 +50,8 @@
 					<p>May your life be happy with this Spice</p>
 					<%if (vo != null) {%>
 					<%String GetId = vo.getid();%>
-						<%if (GetId.equals("admin")) {%>
-						<h2>관리자님 환영합니다</h2>
+						<% if (GetId.equals("admin")) {%>
+							<h2>관리자님 환영합니다</h2>
 						<%} else {%>
 						<h2><%=vo.getid() %>님 환영합니다</h2>
 						<%} %>

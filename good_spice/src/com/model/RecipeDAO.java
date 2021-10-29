@@ -13,7 +13,8 @@ public class RecipeDAO {
 	ResultSet rs = null;
 	MemberVO vo = null;
 	ArrayList<MemberVO> al =null;
-	boolean check= false;
+	ProductVO pvo = null;
+	boolean check = false;
 	int cnt = 0;
 	
 //	동적연결
@@ -65,8 +66,7 @@ public class RecipeDAO {
 //			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
 			
-//			5. 바인드 변수(?) 채우기
-			
+//			5. 바인드 변수(?) 채우기	
 			psmt.setNString(1,rec_name);
 			psmt.setNString(2,salt);
 			psmt.setNString(3,sugar);
@@ -82,5 +82,23 @@ public class RecipeDAO {
 		}
 		
 		return cnt;
+	}
+	public void selectRec(String rec_num, String spice) {
+		try {
+			connection();
+			if(spice.equals(pvo.getSpice())){
+				String sql = "select ? from recipe";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, pvo.getSpice());
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					
+				}
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }	

@@ -139,7 +139,7 @@ public class ProductDAO {
 			String sql = "select prodouct, salt, sugar, pepper from spice_data where MEM_ID=?";
 			psmt = conn.prepareStatement(sql);
 			
-			 psmt.setString(1, mem_id); 
+			psmt.setString(1, mem_id); 
 			
 			rs = psmt.executeQuery();
 			//psmt.setString(1, id);

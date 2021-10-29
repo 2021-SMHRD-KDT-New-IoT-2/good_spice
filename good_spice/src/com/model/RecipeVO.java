@@ -13,6 +13,20 @@ public class RecipeVO {
 		this.sugar = sugar;
 		this.pepper = pepper;
 	}
-	
-	
+
+	public String getRecipe_name() {
+		return recipe_name;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public String getSugar() {
+		return sugar;
+	}
+
+	public String getPepper() {
+		return pepper;
+	}
 }
