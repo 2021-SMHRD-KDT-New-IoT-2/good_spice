@@ -1,3 +1,5 @@
+<%@page import="com.model.ProductVO"%>
+<%@page import="com.model.ProductDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.MemberDAO"%>
 <%@page import="com.model.MemberVO"%>
@@ -17,13 +19,20 @@
 </head>
 
 <body class="is-preload">
-	<%
-		//현재 로그인 상태인지 판별 (vo == null => 로그인하지 않은 상태)
+	<!-- 멤버 -->
+	<%	
 	MemberVO vo = (MemberVO) session.getAttribute("member");
 	MemberDAO dao = new MemberDAO();
 	ArrayList<MemberVO> al = dao.selectAll();
-	%>
+	
+	//<!-- 제품 -->
 
+	ProductDAO Pdao = new ProductDAO();
+	ArrayList<ProductVO> Pal =new ArrayList<ProductVO>();
+	if(vo!=null){
+		Pal = Pdao.selectAll(vo.getid());
+	}
+	%>
 	<!-- Wrapper -->
 
 	<div id="wrapper">
@@ -39,15 +48,21 @@
 				<div class="inner">
 					<h1>Smart Spice</h1>
 					<p>May your life be happy with this Spice</p>
+					<%if (vo != null) {%>
+					<%String GetId = vo.getid();%>
+						<%if (GetId.equals("admin")) {%>
+						<h2>관리자님 환영합니다</h2>
+						<%} else {%>
+						<h2><%=vo.getid() %>님 환영합니다</h2>
+						<%} %>
+					<%} %>
 				</div>
 			</div>
 			<nav>
 				<ul class>
 					<li><a href="#intro">Intro</a></li>
 
-					<li><select
-						onchange="if(this.value) location.href=(this.value);" id="select"
-						onclick="menu()">
+					<li><select onchange="if(this.value) location.href=(this.value);" id="select" onclick="menu()">
 
 							<option disabled selected>Recipe</option>
 							<option value="#KOREA">한식</option>
@@ -61,98 +76,54 @@
 							$("#select").val("Recipe");							
 									}
 						</script>
+					<li><a href="#POST">Post</a></li>
+					<li><a href="#QNA">Q&A</a></li>
 
-					<%
-						if (vo == null) {
-					%>
+					<%if (vo == null) {%>
 					<li><a href="#Login">Login</a></li>
 					<li><a href="#Join">Join</a></li>
-					<%
-						} else {
-					%>
-					<script>
-                     alert("<%=vo.getid()%>님 환영합니다.");
-					</script>
-
-					<li><select
-						onchange="if(this.value) location.href=(this.value);"
-						id="selMypage" onclick="test()">
-							<option disabled selected>Mypage</option>
-							<option value="#KOREA">정보수정</option>
-							<option value="#Product">기기관리</option>
-
-					</select></li>
-					<script>
-						function test() {
-							$("#selMypage").val("Mypage");
-						}
-					</script>
-
-
-					<li><a href="LogoutService">Logout</a></li>
-					<%}%>
-
-					<%
-						if (vo == null) {
-					%>
-					<li><a href="#Login">Login</a></li>
-					<li><a href="#Join">Join</a></li>
-					<%
-						} else {
-					%>
-
-					<%
-						String GetId = vo.getid();
-					%>
-
-					<%
-						if (GetId.equals("admin")) {
-					%>
-					<script>
-							alert("관리자님 환영합니다.");
-							</script>
-
-					<li><select
-						onchange="if(this.value) location.href=(this.value);"
-						id="Adminpage" onclick="admin()">
-							<option disabled selected>Admin</option>
-							<option value="#ChangeInfo">레시피</option>
-							<option value="SelectMember.jsp">회원정보</option>
-					</select></li>
-
-					<script>
-								function admin(){
-									$("#Adminpage").val("Admin");					
-											}
-								</script>
-
-					<li><a href="LogoutService">Logout</a></li>
-
-
-					<%
-						} else {
-					%>
-					<script>
-									alert("<%=vo.getnick()%>님 환영합니다.");
-					</script>
-
-					<li><select
-						onchange="if(this.value) location.href=(this.value);"
-						id="selMypage" onclick="info()">
-							<option disabled selected>Mypage</option>
-							<option value="#ChangeInfo">정보수정</option>
-							<option value="#Product">기기관리</option>
-					</select></li>
-
-					<script>
-						function info() {
-							$("#selMypage").val("Mypage");
-						}
-					</script>
-
-					<li><a href="LogoutService">Logout</a></li>
-					<%}%>
-					<%}%>
+					<%} else {%>
+					
+					<%String GetIdd = vo.getid();%>
+				
+						<%if (GetIdd.equals("admin")) {%>
+						
+						<li><select
+							onchange="if(this.value) location.href=(this.value);"
+							id="Adminpage" onclick="admin()">
+								<option disabled selected>Admin</option>
+								<option value="#recipepost">레시피</option>
+								<option value="#MemberInfo">회원정보</option>
+						</select></li>
+	
+						<script>
+									function admin(){
+										$("#Adminpage").val("Admin");					
+												}
+									</script>
+	
+						<li><a href="LogoutService">Logout</a></li>
+					
+						<%} else {%>
+						
+						<li><select
+							onchange="if(this.value) location.href=(this.value);"
+							id="selMypage" onclick="info()">
+								<option disabled selected>Mypage</option>
+								<option value="#ChangeInfo">정보수정</option>
+								<option value="#Product">기기관리</option>
+						</select></li>
+	
+						<script>
+							function info() {
+								$("#selMypage").val("Mypage");
+							}
+						</script>
+	
+						<li><a href="LogoutService">Logout</a></li>
+						
+						<%}%>
+				<%}%>
 
 				</ul>
 			</nav>
@@ -601,7 +572,6 @@
 				</span>
 			</article>
 
-
 			<!-- Login 로그인 -->
 			<article id="Login">
 				<h2 class="major">Login</h2>
@@ -624,8 +594,10 @@
 				<form action="JoinService" method="post">
 					<input name="id" id="input_id" type="text" placeholder="ID를 입력하세요" required="required">
 					<br> 
+					<div style="text-align: center;">
 					<input type="button" value="Id중복체크" onclick="idcheck()"> 
-					<br><br> 
+					</div>
+					<br> 
 					<input name="pw" type="password" placeholder="PW를 입력하세요" required="required"> 
 					<br> 
 					<input name="nick" type="text" placeholder="NICK를 입력하세요" required="required">
@@ -640,11 +612,12 @@
 			<article id="Product">
 				<h2 class="major">기기관리</h2>
 				<form action="ProductService" method="post">
-					<!-- <input name = "id" type = "text" placeholder = "아이디를 입력하세요" required = "required">
-						<br> -->
 					<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 					<br>
+
+					<div style="text-align: center;">
 					<input type="button" value="제품번호중복체크" onclick="prodcheck()"> 
+					</div>
 					<br> 
 					<br> <select name="spice">
 						<option value="">양념을 선택하세요.</option>
@@ -662,6 +635,17 @@
 						<td>제품번호</td>
 						<td>양념</td>
 					</tr>
+					<!-- 제품번호 출력 -->
+					
+					<%for(ProductVO pvo:Pal){%>
+					
+					<tr>
+						<td><%= pvo.getProduct() %></td>
+						<td><%= pvo.getSpice() %></td>
+						<td><a href="DeleteProduct?product=<%=pvo.getProduct()%>" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
+					</tr>
+				
+					<%}%>
 				</table>
 				<br> <br>
 
@@ -686,20 +670,39 @@
 						<td>NICK</td>
 						<td>Delete</td>
 					</tr>
-					<%
-						for (MemberVO member : al) {
-					%>
+					<%for(MemberVO mvo:al){%>
 					<tr>
-						<td><%=member.getid()%></td>
-						<td><%=member.getpw()%></td>
-						<td><%=member.getnick()%></td>
-						<td><a href="DeleteService?id=<%=member.getid()%>">삭제</a></td>
+						<td><%=mvo.getid() %></td>
+						<td><%=mvo.getpw() %></td>
+						<td><%=mvo.getnick() %></td>
+						<td><a href="DeleteService?id=<%=mvo.getid()%>" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 					</tr>
-					<%}%>
+					<% } %>
 				</table>
 			</article>
 
-
+		
+		<article id="recipepost">
+				<h2 class="major">RecipePost</h2>
+		
+				<form action="RecipePost" method="post">
+					<h3>요리 명</h3>
+					<input name="rec_name" type="text" placeholder="요리 이름 입력" required="required">
+					<br>
+					<h3>소금</h3> 
+					<input name="salt" type="text" placeholder="소금 양 입력" required="required"> 
+					<br> 
+					<h3>설탕</h3>
+					<input name="sugar" type="text" placeholder="설탕 양 입력" required="required">
+					<br>
+					<h3>후추</h3>
+					<input name="pepper" type="text" placeholder="후추 양 입력" required="required">
+					<br>
+					<div style="text-align: center;">
+						<input type="submit" value="작성">
+					</div>
+				</form>
+			</article>
 
 		</div>
 		<!-- Main 끝 -->
