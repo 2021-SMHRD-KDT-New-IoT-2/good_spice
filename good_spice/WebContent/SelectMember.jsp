@@ -23,6 +23,7 @@
 	<!-- Wrapper -->
 	
 	<div id="wrapper">
+			<h3><a href="main.jsp">WantS</a></h3>
 				<h2 class="major">회원관리</h2>
 				<table>
 					<tr>
