@@ -73,38 +73,7 @@
 						</script>
 
 
-					<%
-						if (vo == null) {
-					%>
-					<li><a href="#Login">Login</a></li>
-					<li><a href="#Join">Join</a></li>
-					<%
-						} else {
-					%>
-					<script>
-                     alert("<%=vo.getid()%>님 환영합니다.");
-					</script>
-
-					<li><select
-						onchange="if(this.value) location.href=(this.value);"
-						id="selMypage" onclick="test()">
-							<option disabled selected>Mypage</option>
-							<option value="#KOREA">정보수정</option>
-							<option value="#Product">기기관리</option>
-
-					</select></li>
-					<script>
-						function test() {
-							$("#selMypage").val("Mypage");
-						}
-					</script>
-
-
-					<li><a href="LogoutService">Logout</a></li>
-					<%}%>
-
-
-					<%
+					<% 
 						if (vo == null) {
 					%>
 					<li><a href="#Login">Login</a></li>
