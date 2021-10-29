@@ -46,8 +46,9 @@
 					<li><a href="#intro">Intro</a></li>
 
 					<li><select
-onchange="if(this.value) location.href=(this.value);" id="select"
+						onchange="if(this.value) location.href=(this.value);" id="select"
 						onclick="menu()">
+
 							<option disabled selected>Recipe</option>
 							<option value="#KOREA">한식</option>
 							<option value="#CHINA">중식</option>
@@ -60,11 +61,8 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 							$("#select").val("Recipe");							
 									}
 						</script>
-						
-					<li><a href="#POST">Post</a></li>
-					<li><a href="#QNA">Q&A</a></li>
 
-				<%-- 	<%
+					<%
 						if (vo == null) {
 					%>
 					<li><a href="#Login">Login</a></li>
@@ -75,6 +73,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 					<script>
                      alert("<%=vo.getid()%>님 환영합니다.");
 					</script>
+
 					<li><select
 						onchange="if(this.value) location.href=(this.value);"
 						id="selMypage" onclick="test()">
@@ -91,7 +90,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 
 
 					<li><a href="LogoutService">Logout</a></li>
-					<%}%> --%>
+					<%}%>
 
 					<%
 						if (vo == null) {
@@ -552,24 +551,18 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 							<th>번호</th>
 							<th>제목</th>
 							<th>작성자</th>
-							<th>작성일자</th>
+							<th>조회수</th>
 						</tr>
 
 						<tr>
 							<td>1</td>
 							<td>힘들어</td>
 							<td>성민</td>
-							<td></td>
+							<td>11111</td>
 						</tr>
 					</table>
 
-						<div>
-							<p align="center"><input type="button" href="write.html" value="글쓰기"> </p>
-						</div>
-						
-	
-				</span>				
-
+				</span>
 			</article>
 
 			<!-- Q&A -->
@@ -583,12 +576,6 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 						<th>조회수</th>
 					</tr>
 
-					<tr>
-						<td>1</td>
-						<td>힘들어</td>
-						<td>성민</td>
-						<td>11111</td>
-					</tr>
 					<tr>
 						<td>1</td>
 						<td>힘들어</td>
@@ -657,7 +644,7 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 						<br> -->
 					<input name="product" id="input_product" type="text" placeholder="제품번호를 입력하세요" required="required">
 					<br>
-					<input type="button" value="제품번호중복체크" onclick="prodcheck()" required="required"> 
+					<input type="button" value="제품번호중복체크" onclick="prodcheck()"> 
 					<br> 
 					<br> <select name="spice">
 						<option value="">양념을 선택하세요.</option>
@@ -745,7 +732,9 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 
 			$.ajax({
 				type : "post", // 데이터 요청 방식 get/post
-				data : {"id" : input.value}, // 전송하는 데이터
+				data : {
+					"id" : input.value
+				}, // 전송하는 데이터
 				url : "IdCheckService", // 데이터를 요청하는 서버페이지 url
 				dataType : "text", //응답데이터의 형식
 				success : function(data) { // 성공했을 때, 함수 호출 function(전송 받은 값)
@@ -762,7 +751,6 @@ onchange="if(this.value) location.href=(this.value);" id="select"
 					alert("통신실패")
 				}
 			});
-		
 		/* 제품 중복 체크 */
 		}function prodcheck() {
 			let input_prod = document.getElementById("input_product");
