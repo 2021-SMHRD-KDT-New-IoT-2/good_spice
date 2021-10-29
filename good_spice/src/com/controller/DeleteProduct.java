@@ -21,12 +21,6 @@ public class DeleteProduct extends HttpServlet {
 		
 		String product = request.getParameter("product");
 
-//		회원삭제기능 호출
-		
-		//dao 기능 호출 => 수정여부를 판단할 수 있는 갑 반환
-//		수정성공일 경우에는 콘솔 => 수정성공!
-//		수정실패일 경우에는 콘솔 => 수정실패!
-		
 		ProductDAO dao =new ProductDAO(); 
 		int cnt =dao.delete(product);
 		

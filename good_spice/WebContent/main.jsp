@@ -163,8 +163,9 @@
 				<h2 class="major">한식</h2>
 
 				<div style="text-align: right;">
-					<a href="#CHINA">중식&ensp;</a> <a href="#USA">양식&ensp;</a> <a
-						href="#JAPAN">일식</a>
+					<a href="#CHINA">중식&ensp;</a>
+					<a href="#USA">양식&ensp;</a>
+					<a href="#JAPAN">일식</a>
 				</div>
 				<span class="image main"> 김치찌개 <a href="#kimchi"><img
 						src="images/KOREA.jfif"></a>
@@ -217,11 +218,11 @@
 					<a href="#CHINA">중식&ensp;</a> <a href="#USA">양식&ensp;</a> <a
 						href="#KOREA">한식</a>
 				</div>
+				 <span class="image main"> 우동 <a href=#udon><img
+						src="images/udon.png"></a></span> 
 				<span class="image main"> 초밥 <a href=#sushi><img
-						src="images/JAPAN.jfif"></a>
-				</span> <span class="image main"> 우동 <a href=#udon><img
-						src="images/udon.png"></a>
-				</span> <span class="image main"> 오코노미야끼 <a href=#oko><img
+						src="images/JAPAN.jfif"></a></span>
+				<span class="image main"> 오코노미야끼 <a href=#oko><img
 						src="images/oko.jpg"></a>
 				</span>
 			</article>
@@ -243,11 +244,15 @@
 						<li>설탕 10g</li>
 					</ul>
 				</div>
+				
+				<form action = "OutputSpice">
 				<div>
 					<p align="center">
 						<input type="button" href="#" value="전송">
 					</p>
 				</div>
+				</form>
+				
 			</article>
 
 			<article id=beensoup>
@@ -268,10 +273,8 @@
 						<li>설탕 10g</li>
 					</ul>
 				</div>
-				<div>
-					<p align="center">
-						<input type="button" href="#" value="전송">
-					</p>
+				<div style="text-align: center;">
+						<a href="OutputSpice?REC_NUM=<%=1%>">출력</a>
 				</div>
 			</article>
 
@@ -452,8 +455,7 @@
 					<a href="#KOREA">한식&ensp;</a> <a href="#CHINA">중식&ensp;</a> <a
 						href="#USA">양식&ensp;</a> <a href="#JAPAN">일식</a>
 				</div>
-				<h>초밥
-				</h3>
+				<h>초밥</h>
 				<span class="image main"> <a><img src="images/JAPAN.jfif"></a>
 				</span>
 				<div>
@@ -641,32 +643,31 @@
 					</div>
 				</form>
 				<br> <br>
+				
+				<form action = "InputSpice" method = "post">
 				<table>
 					<tr>
 						<td>제품번호</td>
 						<td>양념</td>
+						<td colspan="2" align = "center">양념입력</td>
+						<td>제품삭제</td>
 					</tr>
 					<!-- 제품번호 출력 -->
 					
 					<%for(ProductVO pvo:Pal){%>
 					
 					<tr>
-						<td><%= pvo.getProduct() %></td>
+						<td name = "product"><%= pvo.getProduct() %></td>
 						<td><%= pvo.getSpice() %></td>
+						<td><div style = "width : 100px"><input type = "text" name = "value"></div></td>
+						<td><input type="submit" value="전송" onclick="alert('전송완료')"></td>
 						<td><a href="DeleteProduct?product=<%=pvo.getProduct()%>" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 					</tr>
 				
 					<%}%>
 				</table>
-				<br> <br>
-
-				<form action="#" method="post">
-					<input name="SpiceGram" id="input_gram" type="text"
-						placeholder="양념의 양을 입력하세요." required="required"> <br>
-					<div style="text-align: center;">
-						<input type="submit" value="출력">
-					</div>
 				</form>
+				<br> <br>
 
 
 			</article>

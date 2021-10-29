@@ -21,7 +21,7 @@ public class ProductService extends HttpServlet {
       
       String product = request.getParameter("product");
       String spice = request.getParameter("spice");
-//      String id = request.getParameter("id");
+
       
       
       HttpSession session = request.getSession();
@@ -40,10 +40,7 @@ public class ProductService extends HttpServlet {
          System.out.println("등록실패!");
          response.sendRedirect("main.jsp#Product");
       }
-      
-      //MemberVO vo = new MemberVO();
-      //String id = vo.getid();
-      
+ 
    }
 
 }

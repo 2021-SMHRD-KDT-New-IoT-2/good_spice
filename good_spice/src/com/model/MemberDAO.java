@@ -70,9 +70,9 @@ public class MemberDAO {
 			psmt = conn.prepareStatement(sql);
 			
 //			5. 바인드 변수(?) 채우기
-			psmt.setNString(1,id);
-			psmt.setNString(2,pw);
-			psmt.setNString(3,nick);
+			psmt.setString(1,id);
+			psmt.setString(2,pw);
+			psmt.setString(3,nick);
 			
 			
 //			6. sql문 실행 후 결과처리
@@ -100,8 +100,8 @@ public class MemberDAO {
 			psmt = conn.prepareStatement(sql);
 			
 //			5. 바인드 변수(?) 채우기
-			psmt.setNString(1,id);
-			psmt.setNString(2,pw);
+			psmt.setString(1,id);
+			psmt.setString(2,pw);
 			
 //			6. sql문 실행 후 결과처리
 			rs = psmt.executeQuery();
@@ -109,9 +109,9 @@ public class MemberDAO {
 			if(rs.next()){
 				System.out.println("로그인성공!");	
 				
-				String get_id = rs.getNString("MEM_ID");
-				String get_pw = rs.getNString("MEM_PW");
-				String get_nick = rs.getNString("MEM_NICK");
+				String get_id = rs.getString("MEM_ID");
+				String get_pw = rs.getString("MEM_PW");
+				String get_nick = rs.getString("MEM_NICK");
 				
 				vo = new MemberVO(get_id,get_pw,get_nick);
 //				
@@ -140,9 +140,9 @@ public class MemberDAO {
 			
 //			5. 바인드 변수(?) 채우기
 			
-			psmt.setNString(1,pw);
-			psmt.setNString(2,nick);
-			psmt.setNString(3,id);
+			psmt.setString(1,pw);
+			psmt.setString(2,nick);
+			psmt.setString(3,id);
 			
 //			6. sql문 실행 후 결과처리
 			cnt = psmt.executeUpdate();
@@ -174,9 +174,9 @@ public class MemberDAO {
 			
 			while(rs.next()){
 				
-				String get_id = rs.getNString("MEM_ID");
-				String get_pw = rs.getNString("MEM_PW");
-				String get_nick = rs.getNString("MEM_NICK");
+				String get_id = rs.getString("MEM_ID");
+				String get_pw = rs.getString("MEM_PW");
+				String get_nick = rs.getString("MEM_NICK");
 				
 				vo = new MemberVO(get_id,get_pw,get_nick);	
 //				vo값을 al에 add
@@ -227,7 +227,7 @@ public class MemberDAO {
 			psmt = conn.prepareStatement(sql);
 			
 //			5. 바인드 변수(?) 채우기
-			psmt.setNString(1,id);
+			psmt.setString(1,id);
 			
 //			6. sql문 실행 후 결과처리
 			rs = psmt.executeQuery();
