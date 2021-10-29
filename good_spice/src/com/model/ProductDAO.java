@@ -67,23 +67,14 @@ public class ProductDAO {
 			
 			connection();
 			
-			String sql = null;
-			if(spice.equals("소금")) {
-				sql = "insert into SPICE_DATA values (?, 1, 0, 0, ?)";
-			}else if(spice.equals("설탕")) {
-				sql = "insert into SPICE_DATA values (?, 0, 1, 0, ?)";
-			}else if(spice.equals("후추")) {
-				sql = "insert into SPICE_DATA values (?, 0, 0, 1, ?)";
-			}
-
-//			4. sql문 실행객체 (PreparedStatment)생성
+			String sql = "insert into SPICE_DATA values (?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 			
-//			5. 바인드 변수(?) 채우기
 			psmt.setString(1, product);
-			psmt.setString(2, id);
-
-//			6. sql문 실행 후 결과처리
+			psmt.setString(2, spice);
+			psmt.setString(3, "0");
+			psmt.setString(4, id);
+			
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -95,27 +86,24 @@ public class ProductDAO {
 		}
 		return cnt;
 	}
+	
+	
 //	제품 중복체크
 	public boolean prodCheck(String id) {
 		try {
 			connection();
-//			3. 실행할 sql문 정의 (실행할때마다 값이 달라지는 부분은 ? 작성)
+			
 			String sql = "select PRODOUCT from spice_data where PRODOUCT=?";
 			
-//			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
 			
-//			5. 바인드 변수(?) 채우기
 			psmt.setString(1, id);
 			
-//			6. sql문 실행 후 결과처리
 			rs = psmt.executeQuery();
 			
 			if(rs.next()){
-				//입력한 이메일을 사용할 수 없을때
 				check=true;
 			}else {
-				//입력한 이메일을 사용할 수 있을때
 				check=false;
 			}	
 		} catch (Exception e) {
@@ -128,32 +116,25 @@ public class ProductDAO {
 		return check;
 	}
 	
+	
 //	제품 목록
 	public ArrayList<ProductVO> selectAll(String mem_id){
 		al = new ArrayList<ProductVO>();
 		
-
 		try {
 			connection();
 
-			String sql = "select prodouct, salt, sugar, pepper from spice_data where MEM_ID=?";
+			String sql = "select prodouct, spice from spice_data where MEM_ID=?";
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setString(1, mem_id); 
 			
 			rs = psmt.executeQuery();
-			//psmt.setString(1, id);
+
 			
 			while (rs.next()) {
 				String get_product = rs.getString("prodouct");
-				String get_spice = null;
-					if(rs.getString(2).equals("1")) {
-						get_spice = "소금";
-					}else if(rs.getString(3).equals("1")) {
-						get_spice = "설탕";
-					}else if(rs.getString(4).equals("1")) {
-						get_spice = "후추";
-					}
+				String get_spice = rs.getNString("spice");
 
 				vo = new ProductVO(get_product, get_spice);
 				
@@ -170,6 +151,8 @@ public class ProductDAO {
 		}
 		return al;
 	}
+	
+	
 //	제품삭제
 	public int delete(String product) {
 
@@ -177,13 +160,9 @@ public class ProductDAO {
 			connection();
 			
 				String sql = "DELETE from SPICE_DATA where PRODOUCT=?";
-						
-			
-	//			4. sql문 실행객체 (PreparedStatment)생성
 				psmt = conn.prepareStatement(sql);
-
 				psmt.setString(1, product);
-	//			6. sql문 실행 후 결과처리
+
 				cnt = psmt.executeUpdate();
 				
 		} catch (Exception e) {
