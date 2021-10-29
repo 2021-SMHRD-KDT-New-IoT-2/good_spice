@@ -606,8 +606,10 @@
 				<form action="JoinService" method="post">
 					<input name="id" id="input_id" type="text" placeholder="ID를 입력하세요" required="required">
 					<br> 
+					<div style="text-align: center;">
 					<input type="button" value="Id중복체크" onclick="idcheck()"> 
-					<br><br> 
+					</div>
+					<br> 
 					<input name="pw" type="password" placeholder="PW를 입력하세요" required="required"> 
 					<br> 
 					<input name="nick" type="text" placeholder="NICK를 입력하세요" required="required">
