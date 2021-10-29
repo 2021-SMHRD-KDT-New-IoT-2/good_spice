@@ -108,7 +108,6 @@
 
 					<li><a href="LogoutService">Logout</a></li>
 
-
 					<%
 						} else {
 					%>
