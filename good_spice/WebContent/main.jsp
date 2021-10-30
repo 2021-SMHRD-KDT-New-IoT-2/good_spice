@@ -74,7 +74,7 @@
 					<script>
 						function menu(){
 							$("#select").val("Recipe");							
-									}
+						}
 						</script>
 					<li><a href="#POST">Post</a></li>
 					<li><a href="#QNA">Q&A</a></li>
@@ -138,11 +138,11 @@
 			<article id="intro">
 				<h2 class="major">제품소개</h2>
 
-				<span class="image main"> <video controls muted
-						poster="images/pic1.jpg">
-						<source src="images/KakaoTalk_20211018_161606410.mp4"
-							type="video/mp4">
-					</video></span>
+				<span class="image main"> 
+					<video controls muted poster="images/pic1.jpg">
+					<source src="images/KakaoTalk_20211018_161606410.mp4" type="video/mp4">
+					</video>
+				</span>
 				<P>저희 "스마트 양념통"은 요리를 보다 맛있게 만들기 위해 구상된 제품입니다. 요리시 가장 어려운 간 맞추는
 					일을 보다 간편하게, 보다 완벽하게 할 수 있도록 돕는 기능 할 것입니다.</P>
 				<br>
@@ -224,27 +224,28 @@
 
 			<!-- 한식 레시피 페이지 -->
 			<article id=kimchi>
-				<a href=#KOREA><h2 class="major">한식</h2></a>
+				<form>
+					<a href="#KOREA"><h2 class="major">한식</h2></a>
 				<div style="text-align: right;">
-					<a href="#KOREA">한식&ensp;</a> <a href="#CHINA">중식&ensp;</a> <a
-						href="#USA">양식&ensp;</a> <a href="#JAPAN">일식</a>
+					<a href="#KOREA">한식&ensp;</a> 
+					<a href="#CHINA">중식&ensp;</a> 
+					<a href="#USA">양식&ensp;</a> 
+					<a href="#JAPAN">일식</a>
 				</div>
+				
 				<h3>김치찌개</h3>
 				<span class="image main"> <a><img src="images/KOREA.jfif"></a>
 				</span>
 				<div>
 					<ul>
 						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>설탕 25g</li>
+						<li>후추 5g</li>
 					</ul>
 				</div>
 				
-				<form action = "OutputSpice">
-				<div>
-					<p align="center">
-						<input type="button" href="#" value="전송">
-					</p>
+				<div style="text-align: center;">
+						<a href="OutputSpice?REC_NUM=<%=1%>">전송</a>
 				</div>
 				</form>
 				
@@ -255,8 +256,10 @@
 					<a href=#KOREA>한식</a>
 				</h2>
 				<div style="text-align: right;">
-					<a href="#KOREA">한식&ensp;</a> <a href="#CHINA">중식&ensp;</a> <a
-						href="#USA">양식&ensp;</a> <a href="#JAPAN">일식</a>
+					<a href="#KOREA">한식&ensp;</a> 
+					<a href="#CHINA">중식&ensp;</a> 
+					<a href="#USA">양식&ensp;</a> 
+					<a href="#JAPAN">일식</a>
 				</div>
 				<h3>된장찌개</h3>
 				<span class="image main"> <a><img src="images/been.jpg"></a>
@@ -269,7 +272,7 @@
 					</ul>
 				</div>
 				<div style="text-align: center;">
-						<a href="OutputSpice?REC_NUM=<%=1%>">출력</a>
+						<a href="OutputSpice?REC_NUM=<%=2%>">전송</a>
 				</div>
 			</article>
 
@@ -642,13 +645,16 @@
 						<td>제품삭제</td>
 					</tr>
 					<!-- 제품번호 출력 -->
-					
 					<%for(ProductVO pvo:Pal){%>
 					
 					<tr>
 						<td name = "product"><%= pvo.getProduct() %></td>
-						<td><%= pvo.getSpice() %></td>
-						<td><div style = "width : 100px"><input type = "text" name = "value"></div></td>
+						<td name = "prodSpice"><%= pvo.getSpice() %></td>
+						<td>
+							<div style = "width : 100px">
+								<input type = "text" name = "amount" value = "0">
+							</div>
+						</td>
 						<td><input type="submit" value="전송" onclick="alert('전송완료')"></td>
 						<td><a href="DeleteProduct?product=<%=pvo.getProduct()%>" onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 					</tr>
@@ -700,7 +706,7 @@
 					<input name="pepper" type="text" placeholder="후추 양 입력" required="required">
 					<br>
 					<div style="text-align: center;">
-						<input type="submit" value="작성">
+						<input type="submit" value="작성" onclick="alert('성공적으로 레시피를 작성 하였습니다.')">
 					</div>
 				</form>
 			</article>

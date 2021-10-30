@@ -172,4 +172,32 @@ public class ProductDAO {
 		}
 		return cnt;
 	}
+	// 제품의 소스 값 알아오기
+	public String user_spice(String id) {
+		String spice = null;
+		try {
+			connection();
+
+			String sql = "select spice from spice_data where mem_id = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				spice = rs.getString("spice");
+				System.out.println(spice);
+			}
+			
+		} catch (Exception e) {
+
+			System.out.println("spice 값 출력 실패");
+			e.printStackTrace();
+
+		} finally {
+			close();
+		}
+		return spice;
+	}
 }

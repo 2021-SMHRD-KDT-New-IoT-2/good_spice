@@ -12,9 +12,9 @@ public class RecipeDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	MemberVO vo = null;
-
+	
 	ArrayList<MemberVO> al = null;
-
+	
 	boolean check = false;
 	int cnt = 0;
 
@@ -63,7 +63,7 @@ public class RecipeDAO {
 
 			connection();
 
-			String sql = "insert into RECIPE values (RECIPE_NUM.NEXTVAL,?,?,?,?,?)";
+			String sql = "insert into RECIPE values (REC_SEQ.NEXTVAL,?,?,?,?,?)";
 
 //			4. sql문 실행객체 (PreparedStatment)생성
 			psmt = conn.prepareStatement(sql);
@@ -71,11 +71,11 @@ public class RecipeDAO {
 
 //			5. 바인드 변수(?) 채우기
 
-			psmt.setNString(1, rec_name);
-			psmt.setNString(2, salt);
-			psmt.setNString(3, sugar);
-			psmt.setNString(4, pepper);
-			psmt.setNString(5, id);
+			psmt.setString(1, rec_name);
+			psmt.setString(2, salt);
+			psmt.setString(3, sugar);
+			psmt.setString(4, pepper);
+			psmt.setString(5, id);
 
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
@@ -87,4 +87,34 @@ public class RecipeDAO {
 
 		return cnt;
 	}
+	String[] rec = new String[3];
+	// 사용자에게 레시피 값 가져오기
+	public String[] selectRec(String rec_num) {
+		try {
+			System.out.println(rec_num);
+			connection();
+			String sql = "select salt, sugar, pepper from recipe where rec_num = ?";			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, rec_num);
+			
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				String salt = rs.getString(1);
+				String sugar = rs.getString(2);
+				String pepper = rs.getString(3);
+				rec[0] = salt;
+				rec[1] = sugar;
+				rec[2] = pepper;
+			}
+//			System.out.println(rec[0]);s
+//			System.out.println(rec[1]);
+//			System.out.println(rec[2]);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rec;
+	}	
+	// 사용한 아이디 null로 초기화하기
+	
 }

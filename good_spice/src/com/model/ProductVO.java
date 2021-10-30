@@ -12,6 +12,12 @@ public class ProductVO {
 		this.spice = spice;
 	}
 	
+	public ProductVO(String id) {
+		this.id = id;
+		this.product = product;
+		this.spice = spice;
+	}
+	
 	public void setSpice(String spice) {
 		this.spice = spice;
 	}

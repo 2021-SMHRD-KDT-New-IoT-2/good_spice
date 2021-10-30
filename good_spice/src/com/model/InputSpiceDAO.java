@@ -55,7 +55,7 @@ public class InputSpiceDAO {
 		}
 	}
 	
-	
+	// 아이디의 제품 번호 찾기
 	public String productNum(String id) {
 		
 		String product = null;
@@ -85,7 +85,7 @@ public class InputSpiceDAO {
 		return product;
 	}
 	
-	
+	// 해당 제품번호에 값 넣기
 	public int inputSpice(String product, String value) {
 		try {
 
@@ -112,5 +112,29 @@ public class InputSpiceDAO {
 		return cnt;
 	}
 	
+	// 넣은 값 0으로 세팅
+	public int zerosetting(String product, String value) {
+		int value2 = Integer.parseInt(value);
+		value2 = 0;
+		try {
+			connection();
+			
+			String sql = "update spice_data set value = ? where prodouct = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1, value2);
+			psmt.setString(2, product);
+			
+			cnt = psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 
+	
 }

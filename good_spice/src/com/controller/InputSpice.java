@@ -22,7 +22,7 @@ public class InputSpice extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		MemberVO vo = (MemberVO)session.getAttribute("member");
-		String id = vo.getid();//로그인할 사용자의 이메일
+		String id = vo.getid();//로그인할 사용자의 아이디
 		
 		InputSpiceDAO dao = new InputSpiceDAO();
 		String product = dao.productNum(id);
@@ -34,8 +34,6 @@ public class InputSpice extends HttpServlet {
 		
 		// 값을 아두이노로 보내기
 		
-		// 다시 0으로 만드는 알고리즘
-		
 		if(cnt>0){
 			System.out.println("입력성공!");
 			response.sendRedirect("main.jsp#Product");
@@ -43,6 +41,12 @@ public class InputSpice extends HttpServlet {
 			System.out.println("입력실패!");
 			response.sendRedirect("main.jsp#Product");
 		}
+		// 다시 0으로 만드는 알고리즘
+		int cnt2 = dao.zerosetting(product, value);
+		if(cnt2>0) {
+			System.out.println("zero 세팅 성공");
+		}else {
+			System.out.println("세팅 실패");
+		}
 	}
-
 }
