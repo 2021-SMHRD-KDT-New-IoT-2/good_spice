@@ -172,6 +172,7 @@ public class ProductDAO {
 		}
 		return cnt;
 	}
+	
 	// 제품의 소스 값 알아오기
 	public String user_spice(String id) {
 		String spice = null;

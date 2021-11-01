@@ -1,3 +1,8 @@
+<%@page import="com.model.QuesVO"%>
+<%@page import="com.model.QuesDAO"%>
+<%@page import="com.model.PostVO"%>
+<%@page import="java.lang.reflect.Array"%>
+<%@page import="com.model.PostDAO"%>
 <%@page import="com.model.ProductVO"%>
 <%@page import="com.model.ProductDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -32,6 +37,18 @@
 	if(vo!=null){
 		Pal = Pdao.selectAll(vo.getid());
 	}
+	
+	/* 게시글 */
+	PostDAO Postdao = new PostDAO();
+	ArrayList<PostVO> Postal = Postdao.PostList();
+	
+	
+	/* 질문 */
+	QuesDAO Qdao = new QuesDAO();
+	ArrayList<QuesVO> Qal = Qdao.QuesList();
+	
+	
+	
 	%>
 	<!-- Wrapper -->
 
@@ -521,46 +538,178 @@
 			<!-- Board 게시판 -->
 			<article id="POST">
 				<h1 class="major">게시판</h1>
-				<span class="image main">
-					<table>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>조회수</th>
-						</tr>
+					<div class="container">
+						<div class="row">
+							<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+							<thead>
+								<tr>
+									<th style="text-align: center;">번호</th>
+									<th style="text-align: center;">제목</th>
+									<th style="text-align: center;">작성일</th>
+									<th style="text-align: center;">작성자</th>
+								</tr>
+							</thead>
+							<tbody>
+							<%for(int i = 0; i<Postal.size();i++){ %>
+								<tr>
+									<td><%=Postal.get(i).getPost_num()%></td>
+									<td><a href = "main.jsp#post_one"><%=Postal.get(i).getPost_name() %></a></td>
+									<td><%=Postal.get(i).getPost_date() %></td>
+									<td><%=Postal.get(i).getMem_id() %></td>
 
-						<tr>
-							<td>1</td>
-							<td>힘들어</td>
-							<td>성민</td>
-							<td>11111</td>
-						</tr>
-					</table>
-
-				</span>
+								</tr>
+							<%} %>
+							</tbody>
+						</table>
+						
+					<!-- 글쓰기 버튼 생성 -->
+						<div style="text-align: right;"><button onclick="location.href='main.jsp#post_up'">글쓰기</button></div>
+						</div>
+					</div>
 			</article>
+			
+			<!-- 게시판 작성 페이지 -->
+			<article id= "post_up">
+			<h1 class="major">게시판</h1>
+			<div class="container">
+				<div class="row">
+					<form method="post" action="writeAction.jsp">
+						<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+							<tbody>
+								<tr>
+									<td><input type="text" class="form-control" placeholder="글 제목" name="post_name" maxlength="50" required="required"></td>
+								</tr>
+								<tr>
+									<td><textarea class="form-control" placeholder="글 내용" name="post_cont" maxlength="2048" style="height: 350px;" required="required"></textarea></td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- 글쓰기 버튼 생성 -->
+						<div style="text-align: right;"><input type="submit" class="btn btn-primary pull-right" value="저장"></div>
+					</form>
+				</div>
+			</div>
+			</article>
+	
+
+		<!-- 작성된거 보여주는 페이지 -->
+			<article id="post_one">
+				<h1 class="major">게시판</h1>
+				<div class="container">
+					<div class="row">
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<td style="width: 20%;">글 제목</td>
+									<td colspan="2"><%=Postal.get(0).getPost_name()%></td>
+								</tr>
+								<tr>
+									<td>작성자</td>
+									<td colspan="2"><%=Postal.get(0).getMem_id()%></td>
+								</tr>
+								<tr>
+									<td>작성일자</td>
+									<td colspan="2"><%=Postal.get(0).getPost_date()%></td>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<td colspan="2" style="height: 200px; text-align: left;"><%=Postal.get(0).getPost_cont()%></td>
+								</tr>
+							</tbody>
+						</table>
+						<div style="text-align: right;"><button onclick="location.href='main.jsp#POST'">목록</button></div>
+			</article> 
+
 
 			<!-- Q&A -->
 			<article id="QNA">
 				<h1 class="major">Q&A</h1>
-				<table>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>조회수</th>
-					</tr>
+				<div class="container">
+						<div class="row">
+							<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+							<thead>
+								<tr>
+									<th style="text-align: center;">번호</th>
+									<th style="text-align: center;">제목</th>
+									<th style="text-align: center;">작성일</th>
+									<th style="text-align: center;">작성자</th>
+								</tr>
+							</thead>
+							<tbody>
+							<%for(int i = 0; i<Qal.size();i++){ %>
+								<tr>
+									<td><%=Qal.get(i).getQues_num()%></td>
+									<td><a href = "main.jsp#ques_one"><%=Qal.get(i).getQues_name() %></a></td>
+									<td><%=Qal.get(i).getQues_date() %></td>
+									<td><%=Qal.get(i).getMem_id() %></td>
 
-					<tr>
-						<td>1</td>
-						<td>힘들어</td>
-						<td>성민</td>
-						<td>11111</td>
-					</tr>
-				</table>
+								</tr>
+							<%} %>
+							</tbody>
+						</table>
+						
+						
+					<!-- 질문쓰기 버튼 생성 -->
+						<div style="text-align: right;"><button onclick="location.href='main.jsp#ques_up'">글쓰기</button></div>
+						</div>
+					</div>
 			</article>
+			
+			
+			
+			<!-- 질문 작성 페이지 -->
+			<article id= "ques_up">
+			<h1 class="major">게시판</h1>
+			<div class="container">
+				<div class="row">
+					<form method="post" action="quesWriteAction.jsp">
+						<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+							<tbody>
+								<tr>
+									<td><input type="text" class="form-control" placeholder="질문 제목" name="ques_name" maxlength="50" required="required"></td>
+								</tr>
+								<tr>
+									<td><textarea class="form-control" placeholder="질문 내용" name="ques_cont" maxlength="2048" style="height: 350px;" required="required"></textarea></td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- 글쓰기 버튼 생성 -->
+						<div style="text-align: right;"><input type="submit" class="btn btn-primary pull-right" value="저장"></div>
+					</form>
+				</div>
+			</div>
+			</article>
+	
 
+			<!-- 질문 작성된거 보여주는 페이지 -->
+			<article id="ques_one">
+				<h1 class="major">게시판</h1>
+				<div class="container">
+					<div class="row">
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<td style="width: 20%;">질문 제목</td>
+									<td colspan="2"><%=Qal.get(0).getQues_name()%></td>
+								</tr>
+								<tr>
+									<td>작성자</td>
+									<td colspan="2"><%=Qal.get(0).getMem_id()%></td>
+								</tr>
+								<tr>
+									<td>작성일자</td>
+									<td colspan="2"><%=Qal.get(0).getQues_date()%></td>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<td colspan="2" style="height: 200px; text-align: left;"><%=Qal.get(0).getQues_cont()%></td>
+								</tr>
+							</tbody>
+						</table>
+						<div style="text-align: right;"><button onclick="location.href='main.jsp#QNA'">목록</button></div>
+			</article>
+			
+			
 
 			<!-- 개인정보 수정 -->
 			<article id="ChangeInfo">
@@ -688,7 +837,7 @@
 				</table>
 			</article>
 
-		
+		<!-- 레시피 입력 -->
 		<article id="recipepost">
 				<h2 class="major">RecipePost</h2>
 		
@@ -710,6 +859,9 @@
 					</div>
 				</form>
 			</article>
+			
+		
+			
 
 		</div>
 		<!-- Main 끝 -->
@@ -735,6 +887,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/jquery-3.6.0.min.js"></script>
 	<script>
 		/* id 중복 체크 */
 		function idcheck() {
@@ -761,6 +914,7 @@
 					alert("통신실패")
 				}
 			});
+			
 		/* 제품 중복 체크 */
 		}function prodcheck() {
 			let input_prod = document.getElementById("input_product");
@@ -786,6 +940,7 @@
 			});
 		}
 	</script>
+	
 </body>
 
 </html>
