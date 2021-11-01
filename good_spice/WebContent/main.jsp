@@ -659,7 +659,7 @@
 			
 			<!-- 질문 작성 페이지 -->
 			<article id= "ques_up">
-			<h1 class="major">게시판</h1>
+			<h1 class="major">Q&A</h1>
 			<div class="container">
 				<div class="row">
 					<form method="post" action="quesWriteAction.jsp">
@@ -683,7 +683,7 @@
 
 			<!-- 질문 작성된거 보여주는 페이지 -->
 			<article id="ques_one">
-				<h1 class="major">게시판</h1>
+				<h1 class="major">Q&A</h1>
 				<div class="container">
 					<div class="row">
 						<table class="table table-striped">
