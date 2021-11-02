@@ -659,42 +659,35 @@
 								</tr>
 						</table>
 						<div style="text-align: right;"><button onclick="location.href='main.jsp#QNA'">목록</button></div>
+						<br>
 			
-			<!-- 댓글시작 -->
-			<div>
-				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-						<thead>
+			<!-- 댓글보는곳 -->
+				<table>
 							<tr>
-								<th style="text-align: center;">번호</th>
-								<th style="text-align: center;">내용</th>
-								<th style="text-align: center;">작성일</th>
-								<th style="text-align: center;">작성자</th>
+								<td style="text-align: center; width : 15%" >번호</td>
+								<td style="text-align: center; width : 50%">내용</td>
+								<td style="text-align: center; width : 20%">작성일</td>
+								<td style="text-align: center; width : 15%">작성자</td>
 							</tr>
-						</thead>
-						<tbody>
 							<%for(int i = 0; i<Aal.size();i++){ %>
 								<tr>
-									<td><%=Aal.get(i).getAns_num()%></td>
+									<td style="text-align: center;"><%=Aal.get(i).getAns_num()%></td>
 									<td><%=Aal.get(i).getAns_cont()%></td>
-									<td><%=Aal.get(i).getAns_date() %></td>
-									<td><%=Aal.get(i).getAns_name() %></td>
+									<td style="text-align: center;"><%=Aal.get(i).getAns_date() %></td>
+									<td style="text-align: center;"><%=Aal.get(i).getAns_name() %></td>
 
 								</tr>
 							<%} %>
-							</tbody>
 						</table>
-					</div>
-					
+				<!--댓글 쓰는 칸 -->
 				<form method="post" action="ansWriteAction.jsp">
-						<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-							<tbody>		
+						<table>
 								<tr>
 									<td><textarea class="form-control" placeholder="답글 작성" name="ans_cont" maxlength="100" style="height: 50px; resize: none; overflow-y:hidden;;" required="required"></textarea></td>
 								</tr>
-							</tbody>
 						</table>
 						<!-- 글쓰기 버튼 생성 -->
-						<div style="text-align: right;"><input type="submit" class="btn btn-primary pull-right" value="저장"></div>
+						<div style="text-align: right;"><input type="submit" value="저장"></div>
 					</form>
 				<!-- 댓글끝 -->
 				
