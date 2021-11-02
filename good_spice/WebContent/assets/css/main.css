@@ -37,7 +37,6 @@ ol, ul {
 	list-style: none;
 }
 
-
 select::-ms-expand{
 	display: none;
 }
