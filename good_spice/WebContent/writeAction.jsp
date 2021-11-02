@@ -33,7 +33,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요')");
-			script.println("location.href='main.jsp'");
+			script.println("location.href='main.jsp#Login'");
 			script.println("</script>");
 		}else{
 				// 정상적으로 입력이 되었다면 글쓰기 로직을 수행한다

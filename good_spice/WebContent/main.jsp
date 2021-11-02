@@ -160,12 +160,12 @@
 					<source src="images/KakaoTalk_20211018_161606410.mp4" type="video/mp4">
 					</video>
 				</span>
-				<P>저희 "스마트 양념통"은 요리를 보다 맛있게 만들기 위해 구상된 제품입니다. 요리시 가장 어려운 간 맞추는
-					일을 보다 간편하게, 보다 완벽하게 할 수 있도록 돕는 기능 할 것입니다.</P>
-				<br>
+				<P>저희 "스마트 양념통"은 요리를 보다 맛있게 만들기 위해 구상된 제품입니다. 
+				<br>요리시 가장 어려운 간 맞추는일을 보다 간편하게, 보다 완벽하게 할 수 있도록
+				<br>돕는 기능 할 것입니다.</P>
 				<p>당신의 식탁에 행복이 가득하기를 바랍니다.</p>
 				<p>
-					<a href="https://www.smhrd.or.kr/">구매처</a>
+					구매처 : <a href="https://www.smhrd.or.kr/">스마트인재개발원</a>
 				</p>
 
 			</article>
@@ -305,9 +305,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -330,9 +328,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -354,9 +350,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -377,9 +371,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -402,9 +394,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -426,9 +416,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -451,9 +439,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -475,9 +461,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -499,9 +483,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -523,9 +505,7 @@
 				</span>
 				<div>
 					<ul>
-						<li>소금 10g</li>
-						<li>설탕 10g</li>
-						<li>설탕 10g</li>
+						<li>준비중입니다.</li>
 					</ul>
 				</div>
 				<div>
@@ -538,18 +518,14 @@
 			<!-- Board 게시판 -->
 			<article id="POST">
 				<h1 class="major">게시판</h1>
-					<div class="container">
-						<div class="row">
-							<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-							<thead>
+					<form>
+							<table>
 								<tr>
-									<th style="text-align: center;">번호</th>
-									<th style="text-align: center;">제목</th>
-									<th style="text-align: center;">작성일</th>
-									<th style="text-align: center;">작성자</th>
+									<td style="text-align: center;">번호</td>
+									<td style="text-align: center;">제목</td>
+									<td style="text-align: center;">작성일</td>
+									<td style="text-align: center;">작성자</td>
 								</tr>
-							</thead>
-							<tbody>
 							<%for(int i = 0; i<Postal.size();i++){ %>
 								<tr>
 									<td><%=Postal.get(i).getPost_num()%></td>
@@ -559,46 +535,34 @@
 
 								</tr>
 							<%} %>
-							</tbody>
 						</table>
-						
 					<!-- 글쓰기 버튼 생성 -->
 						<div style="text-align: right;"><button onclick="location.href='main.jsp#post_up'">글쓰기</button></div>
-						</div>
-					</div>
+					</form>
 			</article>
 			
 			<!-- 게시판 작성 페이지 -->
 			<article id= "post_up">
 			<h1 class="major">게시판</h1>
-			<div class="container">
-				<div class="row">
 					<form method="post" action="writeAction.jsp">
-						<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-							<tbody>
+						<table>
 								<tr>
 									<td><input type="text" class="form-control" placeholder="글 제목" name="post_name" maxlength="50" required="required"></td>
 								</tr>
 								<tr>
 									<td><textarea class="form-control" placeholder="글 내용" name="post_cont" maxlength="2048" style="height: 350px;" required="required"></textarea></td>
 								</tr>
-							</tbody>
 						</table>
 						<!-- 글쓰기 버튼 생성 -->
 						<div style="text-align: right;"><input type="submit" class="btn btn-primary pull-right" value="저장"></div>
 					</form>
-				</div>
-			</div>
 			</article>
 	
 
 		<!-- 작성된거 보여주는 페이지 -->
 			<article id="post_one">
 				<h1 class="major">게시판</h1>
-				<div class="container">
-					<div class="row">
-						<table class="table table-striped">
-							<tbody>
+						<table>
 								<tr>
 									<td style="width: 20%;">글 제목</td>
 									<td colspan="2"><%=Postal.get(0).getPost_name()%></td>
@@ -615,7 +579,6 @@
 									<td>내용</td>
 									<td colspan="2" style="height: 200px; text-align: left;"><%=Postal.get(0).getPost_cont()%></td>
 								</tr>
-							</tbody>
 						</table>
 						<div style="text-align: right;"><button onclick="location.href='main.jsp#POST'">목록</button></div>
 			</article> 
@@ -624,18 +587,15 @@
 			<!-- Q&A -->
 			<article id="QNA">
 				<h1 class="major">Q&A</h1>
-				<div class="container">
-						<div class="row">
-							<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-							<thead>
+						<form>
+							<table>
 								<tr>
-									<th style="text-align: center;">번호</th>
-									<th style="text-align: center;">제목</th>
-									<th style="text-align: center;">작성일</th>
-									<th style="text-align: center;">작성자</th>
+									<td style="text-align: center;">번호</td>
+									<td style="text-align: center;">제목</td>
+									<td style="text-align: center;">작성일</td>
+									<td style="text-align: center;">작성자</td>
 								</tr>
-							</thead>
-							<tbody>
+						
 							<%for(int i = 0; i<Qal.size();i++){ %>
 								<tr>
 									<td><%=Qal.get(i).getQues_num()%></td>
@@ -645,14 +605,12 @@
 
 								</tr>
 							<%} %>
-							</tbody>
-						</table>
-						
-						
+
+							</table>
+				
 					<!-- 질문쓰기 버튼 생성 -->
 						<div style="text-align: right;"><button onclick="location.href='main.jsp#ques_up'">글쓰기</button></div>
-						</div>
-					</div>
+						</form>
 			</article>
 			
 			
@@ -660,34 +618,25 @@
 			<!-- 질문 작성 페이지 -->
 			<article id= "ques_up">
 			<h1 class="major">Q&A</h1>
-			<div class="container">
-				<div class="row">
 					<form method="post" action="quesWriteAction.jsp">
-						<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-							<tbody>
+						<table>
 								<tr>
 									<td><input type="text" class="form-control" placeholder="질문 제목" name="ques_name" maxlength="50" required="required"></td>
 								</tr>
 								<tr>
 									<td><textarea class="form-control" placeholder="질문 내용" name="ques_cont" maxlength="2048" style="height: 350px;" required="required"></textarea></td>
 								</tr>
-							</tbody>
 						</table>
 						<!-- 글쓰기 버튼 생성 -->
 						<div style="text-align: right;"><input type="submit" class="btn btn-primary pull-right" value="저장"></div>
 					</form>
-				</div>
-			</div>
 			</article>
 	
 
 			<!-- 질문 작성된거 보여주는 페이지 -->
 			<article id="ques_one">
 				<h1 class="major">Q&A</h1>
-				<div class="container">
-					<div class="row">
-						<table class="table table-striped">
-							<tbody>
+						<table>
 								<tr>
 									<td style="width: 20%;">질문 제목</td>
 									<td colspan="2"><%=Qal.get(0).getQues_name()%></td>
@@ -704,7 +653,6 @@
 									<td>내용</td>
 									<td colspan="2" style="height: 200px; text-align: left;"><%=Qal.get(0).getQues_cont()%></td>
 								</tr>
-							</tbody>
 						</table>
 						<div style="text-align: right;"><button onclick="location.href='main.jsp#QNA'">목록</button></div>
 			</article>
