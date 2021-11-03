@@ -97,12 +97,12 @@ public class AnswerDAO {
 
 				while (rs.next()) {
 					int get_ans_num = rs.getInt("ans_num");
-					String get_ans_name = rs.getString("ans_name");
+					String get_mem_id = rs.getString("mem_id");
 					String get_ans_cont = rs.getString("ans_cont");
 					String get_ans_date = rs.getString("ans_date");
 					int get_ques_num = rs.getInt("ques_num");
 
-					vo = new AnswerVO(get_ans_num, get_ans_name, get_ans_cont, get_ans_date, get_ques_num);
+					vo = new AnswerVO(get_ans_num, get_mem_id, get_ans_cont, get_ans_date, get_ques_num);
 
 					al.add(vo);
 

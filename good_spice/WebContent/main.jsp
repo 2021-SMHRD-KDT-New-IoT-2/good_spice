@@ -236,7 +236,7 @@
          </article>
 
          <!-- 한식 레시피 페이지 -->
-         <article id=kimchi class = "user">
+         <article id="kimchi" class = "user">
 				<form>
 					<a href="#KOREA"><h2 class="major">한식</h2></a>
 					<div style="text-align: right;">
