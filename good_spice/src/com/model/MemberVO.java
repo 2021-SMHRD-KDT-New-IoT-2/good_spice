@@ -12,9 +12,6 @@ public class MemberVO {
 		this.nick = nick;
 	}
 	
-	public MemberVO() {
-		
-	}
 	
 //	¸Þ¼­µå(get)
 	public String getid() {

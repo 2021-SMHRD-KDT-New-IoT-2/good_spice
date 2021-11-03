@@ -27,9 +27,7 @@ public class OutputSpice extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		
 		String rec_num = request.getParameter("REC_NUM");
-		System.out.println(rec_num);
 		String id = request.getParameter("id");
-		System.out.println(id);
 		RecipeDAO rdao = new RecipeDAO();
 		ProductDAO pdao = new ProductDAO();
 		InputSpiceDAO isdao = new InputSpiceDAO();
@@ -53,10 +51,10 @@ public class OutputSpice extends HttpServlet {
 		
 		if(check) {
 			System.out.println("입력성공");
-			response.sendRedirect("main.jsp#kimchi");
+			response.sendRedirect("main.jsp");
 		}else {
 			System.out.println("입력실패");
-			response.sendRedirect("main.jsp#kimchi");
+			response.sendRedirect("main.jsp");
 		}
 	}
 }
