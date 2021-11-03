@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class InputSpiceDAO {
-
+public class valueDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -55,65 +55,42 @@ public class InputSpiceDAO {
 		}
 	}
 	
-	// 아이디의 제품 번호 찾기
-	public String productNum(String id) {
-		
-		String product = null;
+	public valueVO update(int mysensor) {
+		valueVO vo = null;
+		connection();
+		String sql = "update uservalue set mysensor = ?";
 		try {
-			connection();
-
-			String sql = "select prodouct from spice_data where mem_id = ?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-
-			rs = psmt.executeQuery();
-			
-			while(rs.next()) {
-				product = rs.getString("prodouct");
-				System.out.println(product);
-			}
-			
-		} catch (Exception e) {
-
-			System.out.println("product 값 출력 실패");
-			e.printStackTrace();
-
-		} finally {
-			close();
-		}
-		return product;
-	}
-	
-
-	// 아두이노가 불러 올 수 있는 db에 값 넣기.
-	public boolean inputSpice(int mysensor) {
-		ProductVO vo = null;
-		try {
-
-			connection();
-
-			String sql = "UPDATE uservalue set mysensor = ?";
-
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, mysensor);
-
-			cnt = psmt.executeUpdate();
+			psmt.execute();
 			
-			if(cnt>0) {
-				check = true;
-			}else {
-				check = false;
-			}
-			
-		} catch (Exception e) {
-
-			System.out.println("Value입력실패");
+		} catch (SQLException e) {
 			e.printStackTrace();
-
 		} finally {
 			close();
 		}
-		return check;
+		vo = getvalue();
+		return vo;
+	}
+
+	public valueVO getvalue() {
+		valueVO vo = null;
+		connection();
+		
+		String sql = "select * from uservalue";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				int mysensor = rs.getInt(1);
+				vo = new valueVO(mysensor);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
 	}
 }

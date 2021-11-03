@@ -35,7 +35,6 @@ public class LoginService extends HttpServlet {
 		
 		//세션 값 설정
 		session.setAttribute("member", vo);
-		
 		response.sendRedirect("main.jsp");
 		//로그인 기능 작성
 		//로그인 가능할 경우 =>로그인 성공출력
@@ -43,6 +42,7 @@ public class LoginService extends HttpServlet {
 		}else {
 			response.sendRedirect("main.jsp");
 		}
+		
 	}
 
 }

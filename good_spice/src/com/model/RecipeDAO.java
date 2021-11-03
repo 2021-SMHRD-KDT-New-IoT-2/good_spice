@@ -87,9 +87,9 @@ public class RecipeDAO {
 
 		return cnt;
 	}
-	String[] rec = new String[3];
-	// 사용자에게 레시피 값 가져오기
-	public String[] selectRec(String rec_num) {
+	// 레시피 값 주기
+	public int[] selectRec(String rec_num) {
+		int[] rec = new int[3];
 		try {
 			System.out.println(rec_num);
 			connection();
@@ -99,14 +99,14 @@ public class RecipeDAO {
 			
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				String salt = rs.getString(1);
-				String sugar = rs.getString(2);
-				String pepper = rs.getString(3);
+				int salt = Integer.parseInt(rs.getString(1));
+				int sugar = Integer.parseInt(rs.getString(2));
+				int pepper = Integer.parseInt(rs.getString(3));
 				rec[0] = salt;
 				rec[1] = sugar;
 				rec[2] = pepper;
 			}
-//			System.out.println(rec[0]);s
+//			System.out.println(rec[0]);
 //			System.out.println(rec[1]);
 //			System.out.println(rec[2]);
 			
@@ -115,6 +115,5 @@ public class RecipeDAO {
 		}
 		return rec;
 	}	
-	// 사용한 아이디 null로 초기화하기
 	
 }

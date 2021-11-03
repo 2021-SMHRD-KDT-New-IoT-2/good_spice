@@ -7,6 +7,7 @@ public class RecipeVO {
 	private String sugar;
 	private String pepper;
 	
+	
 	public RecipeVO(String recipe_name, String salt, String sugar, String pepper) {
 		this.recipe_name = recipe_name;
 		this.salt = salt;
@@ -31,4 +32,5 @@ public class RecipeVO {
 	public String getPepper() {
 		return pepper;
 	}
+	
 }
