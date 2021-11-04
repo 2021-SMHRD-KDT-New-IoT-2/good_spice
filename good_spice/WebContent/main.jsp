@@ -762,30 +762,25 @@
             
             <form class = "user">
 					<table>
-						<tr>
+						<tr align = "center">
 							<td>제품번호</td>
 							<td>양념</td>
-							<td colspan="2" align="center">양념입력</td>
+							<td colspan="2">양념입력</td>
+							<td>전송성공여부</td>
 							<td>제품삭제</td>
 						</tr>
 						<!-- 제품번호 출력 -->
 						<%for(ProductVO pvo:Pal){%>
 
 						<tr>
-							<td name="product" id="product2"><%= pvo.getProduct() %></td>
-							<td><%= pvo.getSpice() %></td>
-							<td>
-								<div style="width: 100px">
-									<input type="text" name="value" id="mysensor" value="0">
-									<button id="user_input" type="button">전송</button>
-									
-									<p id="result"></p>
-								</div>
-							</td>
-							<td><input type="submit" value="전송" onclick="alert('전송완료')">
-							</td>
+							<td name="product" id="product2" align = "center"><%= pvo.getProduct() %></td>
+							<td align = "center"><%= pvo.getSpice() %></td>
+							<td><input size = "1" type="text" name="value" id="mysensor" value="0"></td>
+							<td><button id="user_input" type="button" onclick="alert('전송완료')">전송</button></td>
+							<td><p id="result"></p>	</td>
+							<!-- <td><input type="submit" value="전송" "></td>  -->
 
-							<td><a href="DeleteProduct?product=<%=pvo.getProduct()%>"
+							<td align = "center"><a href="DeleteProduct?product=<%=pvo.getProduct()%>"
 								onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 						</tr>
 
