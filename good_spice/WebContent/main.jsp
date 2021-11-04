@@ -255,10 +255,10 @@
 					</div>
 
 					<div style="text-align: center;">
-					<%if(vo!=null){ %>
-						<a href="OutputSpice?REC_NUM=1&id=<%=vo.getid() %>">전송</a>
-					<%} %>
-					</div>
+               <%if(vo!=null){ %>
+                  <a href="OutputSpice?REC_NUM=1&id=<%=vo.getid() %>"><button>전송</button></a>
+               <%} %>
+               </div>
 				</form>
 
 			</article>
@@ -516,10 +516,10 @@
                <form>
                      <table>
                         <tr>
-                           <td style="text-align: center;">번호</td>
-                           <td style="text-align: center;">제목</td>
-                           <td style="text-align: center;">작성일</td>
-                           <td style="text-align: center;">작성자</td>
+                           <td style="text-align: center; width:10%">번호</td>
+                           <td style="text-align: center; width:55%">제목</td>
+                           <td style="text-align: center; width:20%">작성일</td>
+                           <td style="text-align: center; width:15%">작성자</td>
                         </tr>
                      <%for(int i = 0; i<Postal.size();i++){ %>
                         <tr>
@@ -634,15 +634,15 @@
                   <table>
                         <tr>
                            <td style="width: 20%;">질문 제목</td>
-                           <td colspan="2"><%=Qal.get(0).getQues_name()%></td>
+                           <td colspan="2"><%=Qal.get(1).getQues_name()%></td>
                         </tr>
                         <tr>
                            <td>작성자</td>
-                           <td colspan="2"><%=Qal.get(0).getMem_id()%></td>
+                           <td colspan="2"><%=Qal.get(1).getMem_id()%></td>
                         </tr>
                         <tr>
                            <td>작성일자</td>
-                           <td colspan="2"><%=Qal.get(0).getQues_date()%></td>
+                           <td colspan="2"><%=Qal.get(1).getQues_date()%></td>
                         </tr>
                         <tr>
                            <td>내용</td>
@@ -661,12 +661,12 @@
                         <td style="text-align: center; width : 15%">작성자</td>
                      </tr>
                      <%for(int i = 0; i<Aal.size();i++){ %>
+                     	
                         <tr>
                            <td style="text-align: center;"><%=Aal.get(i).getAns_num()%></td>
                            <td><%=Aal.get(i).getAns_cont()%></td>
                            <td style="text-align: center;"><%=Aal.get(i).getAns_date() %></td>
                            <td style="text-align: center;"><%=Aal.get(i).getAns_name() %></td>
-
                         </tr>
                      <%} %>
                   </table>
