@@ -160,15 +160,13 @@
             <h2 class="major">제품소개</h2>
 
             <span class="image main"> 
-               <video controls muted poster="images/pic1.jpg">
-               <source src="images/KakaoTalk_20211018_161606410.mp4" type="video/mp4">
-               </video>
+               <img src = "images/goodspice.jpg">
             </span>
             <P>저희 "스마트 양념통"은 요리를 보다 맛있게 만들기 위해 구상된 제품입니다. 
             <br>요리시 가장 어려운 간 맞추는일을 보다 간편하게, 보다 완벽하게 할 수 있도록
             <br>돕는 기능 할 것입니다.</P>
             <p>당신의 식탁에 행복이 가득하기를 바랍니다.</p>
-            <p>
+            <p align = "center">
                구매처 : <a href="https://www.smhrd.or.kr/">스마트인재개발원</a>
             </p>
 
@@ -256,7 +254,7 @@
 
 					<div style="text-align: center;">
 					<%if(vo!=null){ %>
-						<a href="OutputSpice?REC_NUM=1&id=<%=vo.getid() %>">전송</a>
+						<a href="OutputSpice?REC_NUM=1&id=<%=vo.getid() %>"><button onclick = "alert('전송 성공')">전송</button></a>
 					<%} %>
 					</div>
 				</form>
@@ -284,7 +282,7 @@
                </ul>
             </div>
             <div style="text-align: center;">
-                  <a href="OutputSpice?REC_NUM=<%=2%>">전송</a>
+                  <a href="OutputSpice?REC_NUM=<%=2%>"><button  onclick = "alert('전송 성공')">전송</button></a>
             </div>
          </article>
 
@@ -516,10 +514,10 @@
                <form>
                      <table>
                         <tr>
-                           <td style="text-align: center;">번호</td>
-                           <td style="text-align: center;">제목</td>
-                           <td style="text-align: center;">작성일</td>
-                           <td style="text-align: center;">작성자</td>
+                           <td style="text-align: center; width : 15%">번호</td>
+                           <td style="text-align: center; width : 50%">제목</td>
+                           <td style="text-align: center; width : 20%">작성일</td>
+                           <td  style="text-align: center; width : 15%">작성자</td>
                         </tr>
                      <%for(int i = 0; i<Postal.size();i++){ %>
                         <tr>
@@ -585,10 +583,10 @@
                   <form>
                      <table>
                         <tr>
-                           <td style="text-align: center;">번호</td>
-                           <td style="text-align: center;">제목</td>
-                           <td style="text-align: center;">작성일</td>
-                           <td style="text-align: center;">작성자</td>
+                           <td  style="text-align: center; width : 15%">번호</td>
+                           <td  style="text-align: center; width : 50%">제목</td>
+                           <td  style="text-align: center; width : 20%">작성일</td>
+                           <td  style="text-align: center; width : 15%">작성자</td>
                         </tr>
                   
                      <%for(int i = 0; i<Qal.size();i++){ %>
@@ -777,9 +775,7 @@
 							<td align = "center"><%= pvo.getSpice() %></td>
 							<td><input size = "1" type="text" name="value" id="mysensor" value="0"></td>
 							<td><button id="user_input" type="button" onclick="alert('전송완료')">전송</button></td>
-							<td><p id="result"></p>	</td>
-							<!-- <td><input type="submit" value="전송" "></td>  -->
-
+							<td><span id="result"></span>	</td>
 							<td align = "center"><a href="DeleteProduct?product=<%=pvo.getProduct()%>"
 								onclick="if(!confirm('삭제 하시겠습니까?')){return false;}">삭제</a></td>
 						</tr>
@@ -787,9 +783,6 @@
 						<%}%>
 					</table>
 				</form>
-            <br> <br>
-
-
          </article>
 
          <!-- MemberInfo 회원정보 -->
