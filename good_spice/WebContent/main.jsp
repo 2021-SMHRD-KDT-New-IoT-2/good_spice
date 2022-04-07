@@ -253,17 +253,10 @@
 					</div>
 
 					<div style="text-align: center;">
-<<<<<<< HEAD
 					<%if(vo!=null){ %>
 						<a href="OutputSpice?REC_NUM=1&id=<%=vo.getid() %>"><button onclick = "alert('傈价 己傍')">傈价</button></a>
 					<%} %>
 					</div>
-=======
-               <%if(vo!=null){ %>
-                  <a href="OutputSpice?REC_NUM=1&id=<%=vo.getid() %>"><button>傈价</button></a>
-               <%} %>
-               </div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-2/good_spice.git
 				</form>
 
 			</article>
@@ -521,17 +514,10 @@
                <form>
                      <table>
                         <tr>
-<<<<<<< HEAD
                            <td style="text-align: center; width : 15%">锅龋</td>
                            <td style="text-align: center; width : 50%">力格</td>
                            <td style="text-align: center; width : 20%">累己老</td>
                            <td  style="text-align: center; width : 15%">累己磊</td>
-=======
-                           <td style="text-align: center; width:10%">锅龋</td>
-                           <td style="text-align: center; width:55%">力格</td>
-                           <td style="text-align: center; width:20%">累己老</td>
-                           <td style="text-align: center; width:15%">累己磊</td>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-2/good_spice.git
                         </tr>
                      <%for(int i = 0; i<Postal.size();i++){ %>
                         <tr>
